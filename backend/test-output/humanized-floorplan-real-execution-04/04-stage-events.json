@@ -1,0 +1,24 @@
+[
+  {
+    "stage": "recognizing_furniture",
+    "atMs": 1187
+  },
+  {
+    "stage": "refining_objects",
+    "atMs": 48172
+  },
+  {
+    "stage": "humanizing",
+    "atMs": 120047
+  },
+  {
+    "stage": "validating",
+    "providerStatus": "Ready",
+    "atMs": 139450
+  },
+  {
+    "stage": "complete",
+    "providerStatus": "Ready",
+    "atMs": 147604
+  }
+]

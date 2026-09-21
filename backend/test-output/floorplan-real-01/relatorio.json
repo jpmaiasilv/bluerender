@@ -1,0 +1,35 @@
+{
+  "arquivo": {
+    "caminho": "G:\\Meu Drive\\05- VS CODE\\Render IA\\backend\\test-fixtures\\floorplans\\planta-tecnica-real-01.jpg",
+    "encontrado": true,
+    "tamanhoBytes": 207540,
+    "formatoDetectado": "image/jpeg"
+  },
+  "dimensoes": {
+    "largura": 1755,
+    "altura": 1241,
+    "proporcao": "1.414",
+    "redimensionadoParaDeteccao": true,
+    "resolucaoTrabalhoDeteccao": "1600x1131",
+    "fatorEscalaTrabalhoParaOriginal": "1.0969",
+    "arquivosDeSaidaMantemDimensaoOriginal": true
+  },
+  "processamento": {
+    "tempoDecodificacaoMs": 201,
+    "tempoDeteccaoMs": 504,
+    "tempoTotalMs": 1676
+  },
+  "protecao": {
+    "percentualProtegidoSemMargem": 9.12,
+    "percentualProtegidoComMargem": 16,
+    "percentualEditavel": 84,
+    "margemSegurancaPxResolucaoTrabalho": 5,
+    "margemSegurancaPxResolucaoOriginal": 5
+  },
+  "contagens": {
+    "wallLineSegments": 222,
+    "furnitureContours": 0,
+    "textComponents": 67,
+    "arcCandidates": 25
+  }
+}

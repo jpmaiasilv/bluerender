@@ -1,0 +1,46 @@
+{
+  "jobId": "db12eae8-c22a-452d-a995-d63bb72602e2",
+  "outcome": "error",
+  "error": {
+    "code": "UNKNOWN_ERROR",
+    "message": "An unexpected error occurred during generation.",
+    "details": "OpenAI text-verification response failed schema validation: [\n  {\n    \"code\": \"custom\",\n    \"message\": \"box.yMax must be greater than box.yMin\",\n    \"path\": [\n      \"boundingBoxes\",\n      3\n    ]\n  }\n]"
+  },
+  "result": null,
+  "stageEvents": [
+    {
+      "stage": "recognizing_furniture",
+      "atMs": 1094
+    },
+    {
+      "stage": "refining_objects",
+      "atMs": 22590
+    },
+    {
+      "stage": "humanizing",
+      "atMs": 61690
+    },
+    {
+      "stage": "validating",
+      "providerStatus": "Ready",
+      "atMs": 92591
+    },
+    {
+      "stage": "error",
+      "providerStatus": "Ready",
+      "atMs": 99749
+    }
+  ],
+  "totalElapsedMs": 99749,
+  "walletBefore": 100,
+  "walletAfter": 100,
+  "creditsDeducted": 0,
+  "resultImageSaved": false,
+  "rawResultCopied": "raw.jpeg",
+  "visionDiagnosticsCropFiles": [
+    "overview.json",
+    "tile-1.json",
+    "tile-2.json"
+  ],
+  "hasRejectionDiagnostics": false
+}

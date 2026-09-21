@@ -1,0 +1,11 @@
+{
+  "jobId": "db12eae8-c22a-452d-a995-d63bb72602e2",
+  "stage": "error",
+  "providerStatus": "Ready",
+  "startedAt": 1789781507560,
+  "error": {
+    "code": "UNKNOWN_ERROR",
+    "message": "An unexpected error occurred during generation.",
+    "details": "OpenAI text-verification response failed schema validation: [\n  {\n    \"code\": \"custom\",\n    \"message\": \"box.yMax must be greater than box.yMin\",\n    \"path\": [\n      \"boundingBoxes\",\n      3\n    ]\n  }\n]"
+  }
+}

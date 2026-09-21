@@ -1,0 +1,221 @@
+{
+  "arquivo": {
+    "caminho": "G:\\Meu Drive\\05- VS CODE\\Render IA\\backend\\test-fixtures\\floorplans\\planta-tecnica-real-01.jpg",
+    "formatoDetectado": "image/jpeg",
+    "tamanhoBytes": 207540
+  },
+  "provedor": "openai",
+  "modelo": "gpt-5.6-terra",
+  "quantidadeChamadas": 1,
+  "execucaoSomenteOverview": true,
+  "tempoTotalMs": 33016,
+  "tempoPorRequisicao": [
+    {
+      "cropId": "overview",
+      "variant": "overview",
+      "success": true,
+      "elapsedMs": 31994,
+      "detectionCount": 29
+    }
+  ],
+  "requestIds": [
+    "resp_0f3dc2fa3f0e18f9016aad91795a4887d291a73e94f878c38a"
+  ],
+  "usoDeTokens": {
+    "inputTokens": 1493,
+    "outputTokens": 2525,
+    "totalTokens": 4018
+  },
+  "custoEstimadoUsd": null,
+  "custoEstimadoNota": "Não calculado — o SDK não devolve um valor em USD diretamente, e eu não tenho um preço por token confirmado e atual para gpt-5.6-terra que eu possa citar com confiança. O uso de tokens acima (usoDeTokens) é o dado real devolvido pela API; o custo em USD pode ser calculado a partir dele consultando a tabela de preços atual da sua conta OpenAI.",
+  "dimensoesOriginais": {
+    "largura": 1755,
+    "altura": 1241
+  },
+  "dimensoesOverviewEnviado": {
+    "sentWidth": 1536,
+    "sentHeight": 363,
+    "rectInOriginal": {
+      "x": 0,
+      "y": 413,
+      "width": 1755,
+      "height": 415
+    }
+  },
+  "conversaoCoordenadas": "Confirmada: todas as caixas em report.objects[].boxOriginalPixels/report.rooms[].boxOriginalPixels já estão em pixels da imagem ORIGINAL (1755x1241), convertidas a partir dos pixels do recorte overview enviado via mapBoxToOriginal (ver openaiCoordinateTransform.ts). Nenhum polígono foi retornado nesta execução (fase overview não solicita polígono).",
+  "areaUtil": {
+    "x": 0,
+    "y": 413,
+    "width": 1755,
+    "height": 415
+  },
+  "recortesEnviados": [
+    {
+      "id": "overview",
+      "rectInOriginal": {
+        "x": 0,
+        "y": 413,
+        "width": 1755,
+        "height": 415
+      },
+      "sentWidth": 1536,
+      "sentHeight": 363
+    }
+  ],
+  "totalComodos": 8,
+  "totalObjetos": 21,
+  "objetosPorCategoria": {
+    "escada": 1,
+    "veiculo": 1,
+    "cama": 2,
+    "mesa": 1,
+    "cadeira": 1,
+    "vaso_sanitario": 2,
+    "bancada": 2,
+    "pia": 4,
+    "sofa": 1,
+    "chuveiro": 2,
+    "armario": 2,
+    "eletrodomestico": 2
+  },
+  "confiancaObjetos": {
+    "media": 0.8076190476190475,
+    "minima": 0.54,
+    "maxima": 0.99
+  },
+  "objetosConfirmados": 0,
+  "objetosIncertos": 21,
+  "objetosRejeitados": 0,
+  "objetosAmbiguos": [
+    {
+      "id": "obj_20",
+      "category": "escada",
+      "confidence": 0.99,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (84% > 35%)"
+    },
+    {
+      "id": "obj_21",
+      "category": "veiculo",
+      "confidence": 0.98,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (63% > 35%)"
+    },
+    {
+      "id": "obj_12",
+      "category": "cama",
+      "confidence": 0.97,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (82% > 35%)"
+    },
+    {
+      "id": "obj_7",
+      "category": "mesa",
+      "confidence": 0.96,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (80% > 35%)"
+    },
+    {
+      "id": "obj_17",
+      "category": "cama",
+      "confidence": 0.96,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (83% > 35%)"
+    },
+    {
+      "id": "obj_8",
+      "category": "cadeira",
+      "confidence": 0.94,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (74% > 35%)"
+    },
+    {
+      "id": "obj_14",
+      "category": "vaso_sanitario",
+      "confidence": 0.92,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+    },
+    {
+      "id": "obj_2",
+      "category": "vaso_sanitario",
+      "confidence": 0.91,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+    },
+    {
+      "id": "obj_10",
+      "category": "bancada",
+      "confidence": 0.9,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (87% > 35%)"
+    },
+    {
+      "id": "obj_11",
+      "category": "pia",
+      "confidence": 0.83,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+    },
+    {
+      "id": "obj_3",
+      "category": "pia",
+      "confidence": 0.81,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+    },
+    {
+      "id": "obj_9",
+      "category": "bancada",
+      "confidence": 0.81,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (96% > 35%)"
+    },
+    {
+      "id": "obj_15",
+      "category": "pia",
+      "confidence": 0.78,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+    },
+    {
+      "id": "obj_4",
+      "category": "pia",
+      "confidence": 0.75,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (96% > 35%)"
+    },
+    {
+      "id": "obj_19",
+      "category": "sofa",
+      "confidence": 0.7,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (99% > 35%)"
+    },
+    {
+      "id": "obj_1",
+      "category": "chuveiro",
+      "confidence": 0.69,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+    },
+    {
+      "id": "obj_13",
+      "category": "armario",
+      "confidence": 0.68,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+    },
+    {
+      "id": "obj_16",
+      "category": "chuveiro",
+      "confidence": 0.65,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+    },
+    {
+      "id": "obj_18",
+      "category": "armario",
+      "confidence": 0.65,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (99% > 35%)"
+    },
+    {
+      "id": "obj_5",
+      "category": "eletrodomestico",
+      "confidence": 0.54,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (63% > 35%)"
+    },
+    {
+      "id": "obj_6",
+      "category": "eletrodomestico",
+      "confidence": 0.54,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (76% > 35%)"
+    }
+  ],
+  "avisosDoModelo": [
+    "[overview] The leftmost narrow service-room appliance symbols are difficult to distinguish precisely at this overview scale.",
+    "[overview] The narrow furnishings in the 23.76 m² area may be cabinet/seating elements; their exact classifications are uncertain."
+  ]
+}

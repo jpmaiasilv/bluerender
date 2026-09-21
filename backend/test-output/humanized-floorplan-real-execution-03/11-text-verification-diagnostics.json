@@ -1,0 +1,43 @@
+{
+  "imageWidth": 1755,
+  "imageHeight": 1241,
+  "possuiTextoNovo": true,
+  "quantidade": 4,
+  "confianca": 0.96,
+  "justificativa": "A imagem gerada inclui inscrições ilegíveis novas na área de jantar e garagem, além de uma marca d’água textual no canto inferior direito.",
+  "acceptedBoxes": [
+    {
+      "xMin": 210,
+      "yMin": 525,
+      "xMax": 258,
+      "yMax": 552
+    },
+    {
+      "xMin": 1474,
+      "yMin": 694,
+      "xMax": 1522,
+      "yMax": 714
+    },
+    {
+      "xMin": 1605,
+      "yMin": 827,
+      "xMax": 1660,
+      "yMax": 857
+    },
+    {
+      "xMin": 1681,
+      "yMin": 825,
+      "xMax": 1755,
+      "yMax": 857
+    }
+  ],
+  "discardedBoxes": [],
+  "boxMetrics": {
+    "totalReceived": 4,
+    "totalAccepted": 4,
+    "totalDiscarded": 0,
+    "discardReasonsGrouped": {}
+  },
+  "requestId": "resp_0b17a04ad123ead8016aae0cdccf0487d29403fb0a53457446",
+  "elapsedMs": 9707
+}

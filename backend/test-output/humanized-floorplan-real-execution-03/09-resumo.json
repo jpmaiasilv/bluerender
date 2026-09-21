@@ -1,0 +1,50 @@
+{
+  "jobId": "7858d58c-02f7-422d-8659-0eedc677b9bb",
+  "outcome": "error",
+  "error": {
+    "code": "GENERATION_FAILED",
+    "message": "A verificação visual confirmou 4 elemento(s) de texto novo/corrompido (confiança 96%): A imagem gerada inclui inscrições ilegíveis novas na área de jantar e garagem, além de uma marca d’água textual no canto inferior direito.",
+    "details": "rejectionKind=confirmed_new_text, protectedRegionDeviation=0.0016, suspiciousTextBlobs=18"
+  },
+  "result": null,
+  "stageEvents": [
+    {
+      "stage": "recognizing_furniture",
+      "atMs": 1144
+    },
+    {
+      "stage": "refining_objects",
+      "atMs": 18532
+    },
+    {
+      "stage": "humanizing",
+      "atMs": 72855
+    },
+    {
+      "stage": "validating",
+      "providerStatus": "Ready",
+      "atMs": 93306
+    },
+    {
+      "stage": "error",
+      "providerStatus": "Ready",
+      "atMs": 102494
+    }
+  ],
+  "totalElapsedMs": 102495,
+  "walletBefore": 100,
+  "walletAfter": 100,
+  "creditsDeducted": 0,
+  "resultImageSaved": false,
+  "rawCropResultFile": "raw.png",
+  "usefulAreaRect": null,
+  "marginPx": null,
+  "pixelPreservationCheck": null,
+  "visionDiagnosticsCropFiles": [
+    "overview.json",
+    "tile-1.json",
+    "tile-2.json"
+  ],
+  "hasTextVerificationDiagnostics": true,
+  "hasRejectionDiagnostics": true
+}

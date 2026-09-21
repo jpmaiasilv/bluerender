@@ -1,0 +1,26 @@
+{
+  "jobId": "05aa5771-f9ca-4c33-8f32-b9131258069c",
+  "outcome": "error",
+  "error": {
+    "code": "UNKNOWN_ERROR",
+    "message": "An unexpected error occurred during generation.",
+    "details": "OpenAI overview response failed schema validation: [\n  {\n    \"code\": \"custom\",\n    \"message\": \"object bounding box area is implausible for the crop it was found in (too tiny or too large)\",\n    \"path\": [\n      \"objects\",\n      7\n    ]\n  },\n  {\n    \"code\": \"custom\",\n    \"message\": \"object bounding box area is implausible for the crop it was found in (too tiny or too large)\",\n    \"path\": [\n      \"objects\",\n      8\n    ]\n  },\n  {\n    \"code\": \"custom\",\n    \"message\": \"object bounding box area is implausible for the crop it was found in (too tiny or too large)\",\n    \"path\": [\n      \"objects\",\n      9\n    ]\n  },\n  {\n    \"code\": \"custom\",\n    \"message\": \"object bounding box area is implausible for the crop it was found in (too tiny or too large)\",\n    \"path\": [\n      \"objects\",\n      10\n    ]\n  },\n  {\n    \"code\": \"custom\",\n    \"message\": \"object bounding box area is implausible for the crop it was found in (too tiny or too large)\",\n    \"path\": [\n      \"objects\",\n      11\n    ]\n  },\n  {\n    \"code\": \"custom\",\n    \"message\": \"object bounding box area is implausible for the crop it was found in (too tiny or too large)\",\n    \"path\": [\n      \"objects\",\n      12\n    ]\n  },\n  {\n    \"code\": \"custom\",\n    \"message\": \"object bounding box area is implausible for the crop it was found in (too tiny or too large)\",\n    \"path\": [\n      \"objects\",\n      13\n    ]\n  },\n  {\n    \"code\": \"custom\",\n    \"message\": \"object bounding box area is implausible for the crop it was found in (too tiny or too large)\",\n    \"path\": [\n      \"objects\",\n      14\n    ]\n  },\n  {\n    \"code\": \"custom\",\n    \"message\": \"object bounding box area is implausible for the crop it was found in (too tiny or too large)\",\n    \"path\": [\n      \"objects\",\n      15\n    ]\n  },\n  {\n    \"code\": \"custom\",\n    \"message\": \"object bounding box area is implausible for the crop it was found in (too tiny or too large)\",\n    \"path\": [\n      \"objects\",\n      16\n    ]\n  }\n]"
+  },
+  "result": null,
+  "stageEvents": [
+    {
+      "stage": "recognizing_furniture",
+      "atMs": 822
+    },
+    {
+      "stage": "error",
+      "atMs": 46837
+    }
+  ],
+  "maskPreviewElapsedMs": 673,
+  "totalElapsedMs": 46837,
+  "walletBefore": 100,
+  "walletAfter": 100,
+  "creditsDeducted": 0,
+  "resultImageSaved": false
+}

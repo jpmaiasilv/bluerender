@@ -1,0 +1,13 @@
+{
+  "imagePath": "G:\\Meu Drive\\05- VS CODE\\Render IA\\backend\\test-fixtures\\floorplans\\planta-tecnica-real-01.jpg",
+  "originalWidth": 1755,
+  "originalHeight": 1241,
+  "marginPx": 60,
+  "usefulAreaRect": {
+    "x": 0,
+    "y": 377,
+    "width": 1755,
+    "height": 487
+  },
+  "usefulAreaPercentOfImage": 39.2
+}

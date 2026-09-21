@@ -1,0 +1,47 @@
+{
+  "convencao": "preto(0)=preservado, branco(255)=editável — convenção interna; o arquivo enviado ao FLUX é o INVERSO (preto=preservar) por exigência da própria API BFL, já aplicada aqui: fillMask JÁ está na convenção interna (branco=editável)",
+  "samples": [
+    {
+      "label": "parede externa (borda esquerda)",
+      "x": 20,
+      "y": 621,
+      "fillMaskValue": 0,
+      "polarity": "preto (0) = preservado"
+    },
+    {
+      "label": "piso/área aberta (centro da planta)",
+      "x": 878,
+      "y": 621,
+      "fillMaskValue": 0,
+      "polarity": "preto (0) = preservado"
+    },
+    {
+      "label": "cama (obj obj_19)",
+      "x": 593,
+      "y": 601,
+      "fillMaskValue": 0,
+      "polarity": "preto (0) = preservado"
+    },
+    {
+      "label": "sofá (obj obj_6)",
+      "x": 250,
+      "y": 641,
+      "fillMaskValue": 255,
+      "polarity": "branco (255) = editável"
+    },
+    {
+      "label": "carro (obj obj_8)",
+      "x": 1485,
+      "y": 596,
+      "fillMaskValue": 255,
+      "polarity": "branco (255) = editável"
+    },
+    {
+      "label": "área externa ao recorte útil (canto superior esquerdo, fora da faixa enviada ao FLUX)",
+      "x": 10,
+      "y": 10,
+      "fillMaskValue": 255,
+      "polarity": "branco (255) = editável"
+    }
+  ]
+}

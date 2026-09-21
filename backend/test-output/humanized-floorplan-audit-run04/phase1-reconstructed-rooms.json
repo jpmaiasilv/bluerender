@@ -1,0 +1,98 @@
+[
+  {
+    "id": "room_1",
+    "type": "comodo",
+    "label": "Área: 3,71 m²",
+    "confidence": 0.98,
+    "boxOriginalPixels": {
+      "xMin": 733,
+      "xMax": 805,
+      "yMin": 543,
+      "yMax": 698
+    }
+  },
+  {
+    "id": "room_2",
+    "type": "comodo",
+    "label": "Área: 9,26 m²",
+    "confidence": 0.98,
+    "boxOriginalPixels": {
+      "xMin": 808,
+      "xMax": 981,
+      "yMin": 543,
+      "yMax": 698
+    }
+  },
+  {
+    "id": "room_3",
+    "type": "comodo",
+    "label": "Área: 23,76 m²",
+    "confidence": 0.98,
+    "boxOriginalPixels": {
+      "xMin": 982,
+      "xMax": 1338,
+      "yMin": 543,
+      "yMax": 698
+    }
+  },
+  {
+    "id": "room_4",
+    "type": "comodo",
+    "label": "área 11,97 m²",
+    "confidence": 0.96,
+    "boxOriginalPixels": {
+      "xMin": 502,
+      "xMax": 656,
+      "yMin": 542,
+      "yMax": 701
+    }
+  },
+  {
+    "id": "room_3",
+    "type": "comodo",
+    "label": "área 13,00 m²",
+    "confidence": 0.95,
+    "boxOriginalPixels": {
+      "xMin": 340,
+      "xMax": 501,
+      "yMin": 541,
+      "yMax": 757
+    }
+  },
+  {
+    "id": "room_4",
+    "type": "comodo",
+    "label": null,
+    "confidence": 0.93,
+    "boxOriginalPixels": {
+      "xMin": 1340,
+      "xMax": 1617,
+      "yMin": 460,
+      "yMax": 768
+    }
+  },
+  {
+    "id": "room_1",
+    "type": "comodo",
+    "label": "banheiro",
+    "confidence": 0.77,
+    "boxOriginalPixels": {
+      "xMin": 62,
+      "xMax": 135,
+      "yMin": 538,
+      "yMax": 758
+    }
+  },
+  {
+    "id": "room_1",
+    "type": "comodo",
+    "label": null,
+    "confidence": 0.76,
+    "boxOriginalPixels": {
+      "xMin": 60.55664062500001,
+      "xMax": 335.91796875,
+      "yMin": 537.6143250688705,
+      "yMax": 758.2617079889807
+    }
+  }
+]

@@ -1,0 +1,11 @@
+# SPA fallback: this is a React Router app — every route needs to resolve to
+# index.html so client-side routing can take over, otherwise a direct link or
+# an F5 on any route other than "/" (e.g. /render, /planta-humanizada) 404s.
+#
+# NOTE: /api/*, /results/* and /uploads/* are NOT proxied here yet — the
+# backend isn't hosted anywhere publicly reachable yet. Once it is, add rules
+# like the ones already sketched in frontend/netlify.toml (or right here,
+# since _redirects wins on a plain drag-and-drop deploy where netlify.toml
+# isn't read) pointing at the backend's real URL, before those rules are
+# needed for the app to actually work end-to-end.
+/*   /index.html   200

@@ -1,0 +1,1893 @@
+{
+  "overview.json": {
+    "variant": "overview",
+    "cropWidth": 1536,
+    "cropHeight": 363,
+    "acceptedObjects": [
+      {
+        "id": "obj_1",
+        "category": "pia",
+        "subcategory": null,
+        "roomType": "comodo",
+        "confidence": 0.82,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 58,
+          "yMin": 117,
+          "xMax": 79,
+          "yMax": 137
+        },
+        "replaceable": false,
+        "notes": "Small sink in the upper-left sanitary compartment.",
+        "polygon": null
+      },
+      {
+        "id": "obj_2",
+        "category": "vaso_sanitario",
+        "subcategory": null,
+        "roomType": "comodo",
+        "confidence": 0.94,
+        "orientationDegrees": 90,
+        "box": {
+          "xMin": 58,
+          "yMin": 154,
+          "xMax": 87,
+          "yMax": 179
+        },
+        "replaceable": false,
+        "notes": null,
+        "polygon": null
+      },
+      {
+        "id": "obj_3",
+        "category": "chuveiro",
+        "subcategory": null,
+        "roomType": "comodo",
+        "confidence": 0.7,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 116,
+          "yMin": 109,
+          "xMax": 153,
+          "yMax": 151
+        },
+        "replaceable": false,
+        "notes": "Square fixture with diagonal enclosure lines; likely a shower stall.",
+        "polygon": null
+      },
+      {
+        "id": "obj_4",
+        "category": "sofa",
+        "subcategory": null,
+        "roomType": "comodo",
+        "confidence": 0.86,
+        "orientationDegrees": 90,
+        "box": {
+          "xMin": 56,
+          "yMin": 245,
+          "xMax": 111,
+          "yMax": 301
+        },
+        "replaceable": true,
+        "notes": null,
+        "polygon": null
+      },
+      {
+        "id": "obj_5",
+        "category": "mesa",
+        "subcategory": "dining table",
+        "roomType": "comodo",
+        "confidence": 0.97,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 187,
+          "yMin": 145,
+          "xMax": 246,
+          "yMax": 249
+        },
+        "replaceable": true,
+        "notes": null,
+        "polygon": null
+      },
+      {
+        "id": "obj_6",
+        "category": "cadeira",
+        "subcategory": null,
+        "roomType": "comodo",
+        "confidence": 0.93,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 190,
+          "yMin": 138,
+          "xMax": 204,
+          "yMax": 156
+        },
+        "replaceable": true,
+        "notes": null,
+        "polygon": null
+      },
+      {
+        "id": "obj_7",
+        "category": "cadeira",
+        "subcategory": null,
+        "roomType": "comodo",
+        "confidence": 0.93,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 210,
+          "yMin": 138,
+          "xMax": 224,
+          "yMax": 156
+        },
+        "replaceable": true,
+        "notes": null,
+        "polygon": null
+      },
+      {
+        "id": "obj_8",
+        "category": "cadeira",
+        "subcategory": null,
+        "roomType": "comodo",
+        "confidence": 0.93,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 230,
+          "yMin": 138,
+          "xMax": 244,
+          "yMax": 156
+        },
+        "replaceable": true,
+        "notes": null,
+        "polygon": null
+      },
+      {
+        "id": "obj_9",
+        "category": "cadeira",
+        "subcategory": null,
+        "roomType": "comodo",
+        "confidence": 0.93,
+        "orientationDegrees": 90,
+        "box": {
+          "xMin": 177,
+          "yMin": 159,
+          "xMax": 195,
+          "yMax": 174
+        },
+        "replaceable": true,
+        "notes": null,
+        "polygon": null
+      },
+      {
+        "id": "obj_10",
+        "category": "cadeira",
+        "subcategory": null,
+        "roomType": "comodo",
+        "confidence": 0.93,
+        "orientationDegrees": 90,
+        "box": {
+          "xMin": 177,
+          "yMin": 184,
+          "xMax": 195,
+          "yMax": 199
+        },
+        "replaceable": true,
+        "notes": null,
+        "polygon": null
+      },
+      {
+        "id": "obj_11",
+        "category": "cadeira",
+        "subcategory": null,
+        "roomType": "comodo",
+        "confidence": 0.93,
+        "orientationDegrees": 90,
+        "box": {
+          "xMin": 177,
+          "yMin": 209,
+          "xMax": 195,
+          "yMax": 224
+        },
+        "replaceable": true,
+        "notes": null,
+        "polygon": null
+      },
+      {
+        "id": "obj_12",
+        "category": "cadeira",
+        "subcategory": null,
+        "roomType": "comodo",
+        "confidence": 0.93,
+        "orientationDegrees": 90,
+        "box": {
+          "xMin": 238,
+          "yMin": 159,
+          "xMax": 256,
+          "yMax": 174
+        },
+        "replaceable": true,
+        "notes": null,
+        "polygon": null
+      },
+      {
+        "id": "obj_13",
+        "category": "cadeira",
+        "subcategory": null,
+        "roomType": "comodo",
+        "confidence": 0.93,
+        "orientationDegrees": 90,
+        "box": {
+          "xMin": 238,
+          "yMin": 184,
+          "xMax": 256,
+          "yMax": 199
+        },
+        "replaceable": true,
+        "notes": null,
+        "polygon": null
+      },
+      {
+        "id": "obj_14",
+        "category": "cadeira",
+        "subcategory": null,
+        "roomType": "comodo",
+        "confidence": 0.93,
+        "orientationDegrees": 90,
+        "box": {
+          "xMin": 238,
+          "yMin": 209,
+          "xMax": 256,
+          "yMax": 224
+        },
+        "replaceable": true,
+        "notes": null,
+        "polygon": null
+      },
+      {
+        "id": "obj_15",
+        "category": "cadeira",
+        "subcategory": null,
+        "roomType": "comodo",
+        "confidence": 0.9,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 210,
+          "yMin": 239,
+          "xMax": 224,
+          "yMax": 256
+        },
+        "replaceable": true,
+        "notes": null,
+        "polygon": null
+      },
+      {
+        "id": "obj_16",
+        "category": "bancada",
+        "subcategory": "kitchen counter",
+        "roomType": "comodo",
+        "confidence": 0.86,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 300,
+          "yMin": 113,
+          "xMax": 438,
+          "yMax": 248
+        },
+        "replaceable": false,
+        "notes": "L-shaped outlined kitchen counter.",
+        "polygon": null
+      },
+      {
+        "id": "obj_17",
+        "category": "pia",
+        "subcategory": "kitchen sink",
+        "roomType": "comodo",
+        "confidence": 0.9,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 350,
+          "yMin": 117,
+          "xMax": 387,
+          "yMax": 142
+        },
+        "replaceable": false,
+        "notes": null,
+        "polygon": null
+      },
+      {
+        "id": "obj_18",
+        "category": "cama",
+        "subcategory": "double bed",
+        "roomType": "comodo",
+        "confidence": 0.97,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 461,
+          "yMin": 119,
+          "xMax": 576,
+          "yMax": 211
+        },
+        "replaceable": true,
+        "notes": null,
+        "polygon": null
+      },
+      {
+        "id": "obj_19",
+        "category": "armario",
+        "subcategory": "wardrobe",
+        "roomType": "comodo",
+        "confidence": 0.75,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 610,
+          "yMin": 115,
+          "xMax": 634,
+          "yMax": 194
+        },
+        "replaceable": true,
+        "notes": "Narrow tall outlined storage element.",
+        "polygon": null
+      },
+      {
+        "id": "obj_20",
+        "category": "vaso_sanitario",
+        "subcategory": null,
+        "roomType": "comodo",
+        "confidence": 0.94,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 646,
+          "yMin": 160,
+          "xMax": 670,
+          "yMax": 184
+        },
+        "replaceable": false,
+        "notes": null,
+        "polygon": null
+      },
+      {
+        "id": "obj_21",
+        "category": "pia",
+        "subcategory": "bathroom sink",
+        "roomType": "comodo",
+        "confidence": 0.91,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 646,
+          "yMin": 207,
+          "xMax": 672,
+          "yMax": 233
+        },
+        "replaceable": false,
+        "notes": null,
+        "polygon": null
+      },
+      {
+        "id": "obj_22",
+        "category": "chuveiro",
+        "subcategory": null,
+        "roomType": "comodo",
+        "confidence": 0.66,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 647,
+          "yMin": 132,
+          "xMax": 672,
+          "yMax": 151
+        },
+        "replaceable": false,
+        "notes": "Small upper bathroom fixture, likely a shower.",
+        "polygon": null
+      },
+      {
+        "id": "obj_23",
+        "category": "cama",
+        "subcategory": "single bed",
+        "roomType": "comodo",
+        "confidence": 0.95,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 767,
+          "yMin": 119,
+          "xMax": 832,
+          "yMax": 211
+        },
+        "replaceable": true,
+        "notes": null,
+        "polygon": null
+      },
+      {
+        "id": "obj_24",
+        "category": "escada",
+        "subcategory": null,
+        "roomType": "comodo",
+        "confidence": 0.98,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 898,
+          "yMin": 206,
+          "xMax": 1113,
+          "yMax": 302
+        },
+        "replaceable": false,
+        "notes": null,
+        "polygon": null
+      },
+      {
+        "id": "obj_25",
+        "category": "armario",
+        "subcategory": "cabinet",
+        "roomType": "comodo",
+        "confidence": 0.62,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 958,
+          "yMin": 122,
+          "xMax": 990,
+          "yMax": 180
+        },
+        "replaceable": true,
+        "notes": "Narrow rectangular storage or cabinet-like object in garage area.",
+        "polygon": null
+      },
+      {
+        "id": "obj_26",
+        "category": "veiculo",
+        "subcategory": "car",
+        "roomType": "comodo",
+        "confidence": 0.99,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 1195,
+          "yMin": 115,
+          "xMax": 1402,
+          "yMax": 202
+        },
+        "replaceable": true,
+        "notes": null,
+        "polygon": null
+      }
+    ],
+    "discardedObjects": [],
+    "objectMetrics": {
+      "totalReceived": 26,
+      "totalAccepted": 26,
+      "totalDiscarded": 0,
+      "discardReasonsGrouped": {},
+      "acceptedSizeStats": {
+        "minAreaPx": 238,
+        "maxAreaPx": 20640,
+        "minWidthPx": 14,
+        "maxWidthPx": 215,
+        "minHeightPx": 15,
+        "maxHeightPx": 135
+      }
+    },
+    "acceptedRooms": [
+      {
+        "id": "room_1",
+        "type": "comodo",
+        "label": null,
+        "confidence": 0.76,
+        "box": {
+          "xMin": 53,
+          "yMin": 109,
+          "xMax": 294,
+          "yMax": 302
+        }
+      },
+      {
+        "id": "room_2",
+        "type": "comodo",
+        "label": "A: 13,00 m²",
+        "confidence": 0.94,
+        "box": {
+          "xMin": 296,
+          "yMin": 110,
+          "xMax": 441,
+          "yMax": 302
+        }
+      },
+      {
+        "id": "room_3",
+        "type": "comodo",
+        "label": "A: 11,97 m²",
+        "confidence": 0.95,
+        "box": {
+          "xMin": 443,
+          "yMin": 110,
+          "xMax": 637,
+          "yMax": 252
+        }
+      },
+      {
+        "id": "room_4",
+        "type": "comodo",
+        "label": "A: 3,71 m²",
+        "confidence": 0.95,
+        "box": {
+          "xMin": 638,
+          "yMin": 111,
+          "xMax": 702,
+          "yMax": 252
+        }
+      },
+      {
+        "id": "room_5",
+        "type": "comodo",
+        "label": "A: 9,26 m²",
+        "confidence": 0.95,
+        "box": {
+          "xMin": 703,
+          "yMin": 110,
+          "xMax": 847,
+          "yMax": 302
+        }
+      },
+      {
+        "id": "room_6",
+        "type": "comodo",
+        "label": "A: 23,76 m²",
+        "confidence": 0.96,
+        "box": {
+          "xMin": 864,
+          "yMin": 110,
+          "xMax": 1171,
+          "yMax": 302
+        }
+      },
+      {
+        "id": "room_7",
+        "type": "comodo",
+        "label": null,
+        "confidence": 0.9,
+        "box": {
+          "xMin": 1172,
+          "yMin": 42,
+          "xMax": 1416,
+          "yMax": 312
+        }
+      }
+    ],
+    "discardedRooms": [],
+    "roomMetrics": {
+      "totalReceived": 7,
+      "totalAccepted": 7,
+      "totalDiscarded": 0,
+      "discardReasonsGrouped": {},
+      "acceptedSizeStats": {
+        "minAreaPx": 9024,
+        "maxAreaPx": 65880,
+        "minWidthPx": 64,
+        "maxWidthPx": 307,
+        "minHeightPx": 141,
+        "maxHeightPx": 270
+      }
+    },
+    "requestId": "resp_0d96f0f059f66eb1016aae1519a60487d2831d8f308d19d8f8",
+    "elapsedMs": 46483
+  },
+  "tile-1.json": {
+    "variant": "tile",
+    "cropWidth": 1053,
+    "cropHeight": 415,
+    "acceptedObjects": [
+      {
+        "id": "obj_1",
+        "category": "pia",
+        "subcategory": null,
+        "roomType": "banheiro",
+        "confidence": 0.85,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 67,
+          "yMin": 135,
+          "xMax": 91,
+          "yMax": 157
+        },
+        "polygon": [
+          {
+            "x": 67,
+            "y": 135
+          },
+          {
+            "x": 91,
+            "y": 135
+          },
+          {
+            "x": 91,
+            "y": 157
+          },
+          {
+            "x": 67,
+            "y": 157
+          }
+        ],
+        "replaceable": false,
+        "notes": "Small washbasin fixture."
+      },
+      {
+        "id": "obj_2",
+        "category": "chuveiro",
+        "subcategory": null,
+        "roomType": "banheiro",
+        "confidence": 0.9,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 135,
+          "yMin": 125,
+          "xMax": 176,
+          "yMax": 170
+        },
+        "polygon": [
+          {
+            "x": 135,
+            "y": 125
+          },
+          {
+            "x": 175,
+            "y": 125
+          },
+          {
+            "x": 175,
+            "y": 169
+          },
+          {
+            "x": 135,
+            "y": 169
+          }
+        ],
+        "replaceable": false,
+        "notes": "Square shower enclosure."
+      },
+      {
+        "id": "obj_3",
+        "category": "vaso_sanitario",
+        "subcategory": null,
+        "roomType": "banheiro",
+        "confidence": 0.95,
+        "orientationDegrees": 90,
+        "box": {
+          "xMin": 64,
+          "yMin": 180,
+          "xMax": 99,
+          "yMax": 204
+        },
+        "polygon": [
+          {
+            "x": 64,
+            "y": 181
+          },
+          {
+            "x": 80,
+            "y": 180
+          },
+          {
+            "x": 94,
+            "y": 184
+          },
+          {
+            "x": 99,
+            "y": 191
+          },
+          {
+            "x": 95,
+            "y": 200
+          },
+          {
+            "x": 81,
+            "y": 204
+          },
+          {
+            "x": 64,
+            "y": 202
+          }
+        ],
+        "replaceable": false,
+        "notes": null
+      },
+      {
+        "id": "obj_4",
+        "category": "bancada",
+        "subcategory": null,
+        "roomType": "área de jantar/cozinha",
+        "confidence": 0.83,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 135,
+          "yMin": 222,
+          "xMax": 169,
+          "yMax": 306
+        },
+        "polygon": [
+          {
+            "x": 135,
+            "y": 222
+          },
+          {
+            "x": 169,
+            "y": 222
+          },
+          {
+            "x": 169,
+            "y": 306
+          },
+          {
+            "x": 135,
+            "y": 306
+          }
+        ],
+        "replaceable": false,
+        "notes": "Narrow countertop with inset sink."
+      },
+      {
+        "id": "obj_5",
+        "category": "pia",
+        "subcategory": null,
+        "roomType": "área de jantar/cozinha",
+        "confidence": 0.92,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 141,
+          "yMin": 229,
+          "xMax": 163,
+          "yMax": 248
+        },
+        "polygon": [
+          {
+            "x": 141,
+            "y": 229
+          },
+          {
+            "x": 163,
+            "y": 229
+          },
+          {
+            "x": 163,
+            "y": 248
+          },
+          {
+            "x": 141,
+            "y": 248
+          }
+        ],
+        "replaceable": false,
+        "notes": "Inset sink in the vertical countertop."
+      },
+      {
+        "id": "obj_6",
+        "category": "mesa",
+        "subcategory": "dining_table",
+        "roomType": "área de jantar/cozinha",
+        "confidence": 0.96,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 228,
+          "yMin": 175,
+          "xMax": 271,
+          "yMax": 280
+        },
+        "polygon": [
+          {
+            "x": 228,
+            "y": 175
+          },
+          {
+            "x": 271,
+            "y": 175
+          },
+          {
+            "x": 271,
+            "y": 280
+          },
+          {
+            "x": 228,
+            "y": 280
+          }
+        ],
+        "replaceable": true,
+        "notes": "Rectangular dining table."
+      },
+      {
+        "id": "obj_7",
+        "category": "cadeira",
+        "subcategory": "dining_chair",
+        "roomType": "área de jantar/cozinha",
+        "confidence": 0.83,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 226,
+          "yMin": 160,
+          "xMax": 244,
+          "yMax": 174
+        },
+        "polygon": [
+          {
+            "x": 227,
+            "y": 161
+          },
+          {
+            "x": 243,
+            "y": 161
+          },
+          {
+            "x": 243,
+            "y": 174
+          },
+          {
+            "x": 227,
+            "y": 174
+          }
+        ],
+        "replaceable": true,
+        "notes": "Dining chair at the upper side of table."
+      },
+      {
+        "id": "obj_8",
+        "category": "cadeira",
+        "subcategory": "dining_chair",
+        "roomType": "área de jantar/cozinha",
+        "confidence": 0.83,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 250,
+          "yMin": 160,
+          "xMax": 269,
+          "yMax": 174
+        },
+        "polygon": [
+          {
+            "x": 251,
+            "y": 161
+          },
+          {
+            "x": 268,
+            "y": 161
+          },
+          {
+            "x": 268,
+            "y": 174
+          },
+          {
+            "x": 251,
+            "y": 174
+          }
+        ],
+        "replaceable": true,
+        "notes": "Dining chair at the upper side of table."
+      },
+      {
+        "id": "obj_9",
+        "category": "cadeira",
+        "subcategory": "dining_chair",
+        "roomType": "área de jantar/cozinha",
+        "confidence": 0.87,
+        "orientationDegrees": 90,
+        "box": {
+          "xMin": 213,
+          "yMin": 180,
+          "xMax": 227,
+          "yMax": 205
+        },
+        "polygon": [
+          {
+            "x": 214,
+            "y": 181
+          },
+          {
+            "x": 227,
+            "y": 181
+          },
+          {
+            "x": 227,
+            "y": 204
+          },
+          {
+            "x": 214,
+            "y": 204
+          }
+        ],
+        "replaceable": true,
+        "notes": "Dining chair at left side of table."
+      },
+      {
+        "id": "obj_10",
+        "category": "cadeira",
+        "subcategory": "dining_chair",
+        "roomType": "área de jantar/cozinha",
+        "confidence": 0.87,
+        "orientationDegrees": 90,
+        "box": {
+          "xMin": 213,
+          "yMin": 209,
+          "xMax": 227,
+          "yMax": 237
+        },
+        "polygon": [
+          {
+            "x": 214,
+            "y": 210
+          },
+          {
+            "x": 227,
+            "y": 210
+          },
+          {
+            "x": 227,
+            "y": 236
+          },
+          {
+            "x": 214,
+            "y": 236
+          }
+        ],
+        "replaceable": true,
+        "notes": "Dining chair at left side of table."
+      },
+      {
+        "id": "obj_11",
+        "category": "cadeira",
+        "subcategory": "dining_chair",
+        "roomType": "área de jantar/cozinha",
+        "confidence": 0.87,
+        "orientationDegrees": 90,
+        "box": {
+          "xMin": 213,
+          "yMin": 244,
+          "xMax": 227,
+          "yMax": 270
+        },
+        "polygon": [
+          {
+            "x": 214,
+            "y": 245
+          },
+          {
+            "x": 227,
+            "y": 245
+          },
+          {
+            "x": 227,
+            "y": 269
+          },
+          {
+            "x": 214,
+            "y": 269
+          }
+        ],
+        "replaceable": true,
+        "notes": "Dining chair at left side of table."
+      },
+      {
+        "id": "obj_12",
+        "category": "cadeira",
+        "subcategory": "dining_chair",
+        "roomType": "área de jantar/cozinha",
+        "confidence": 0.87,
+        "orientationDegrees": 90,
+        "box": {
+          "xMin": 272,
+          "yMin": 180,
+          "xMax": 286,
+          "yMax": 205
+        },
+        "polygon": [
+          {
+            "x": 272,
+            "y": 181
+          },
+          {
+            "x": 285,
+            "y": 181
+          },
+          {
+            "x": 285,
+            "y": 204
+          },
+          {
+            "x": 272,
+            "y": 204
+          }
+        ],
+        "replaceable": true,
+        "notes": "Dining chair at right side of table."
+      },
+      {
+        "id": "obj_13",
+        "category": "cadeira",
+        "subcategory": "dining_chair",
+        "roomType": "área de jantar/cozinha",
+        "confidence": 0.87,
+        "orientationDegrees": 90,
+        "box": {
+          "xMin": 272,
+          "yMin": 209,
+          "xMax": 286,
+          "yMax": 237
+        },
+        "polygon": [
+          {
+            "x": 272,
+            "y": 210
+          },
+          {
+            "x": 285,
+            "y": 210
+          },
+          {
+            "x": 285,
+            "y": 236
+          },
+          {
+            "x": 272,
+            "y": 236
+          }
+        ],
+        "replaceable": true,
+        "notes": "Dining chair at right side of table."
+      },
+      {
+        "id": "obj_14",
+        "category": "cadeira",
+        "subcategory": "dining_chair",
+        "roomType": "área de jantar/cozinha",
+        "confidence": 0.87,
+        "orientationDegrees": 90,
+        "box": {
+          "xMin": 272,
+          "yMin": 244,
+          "xMax": 286,
+          "yMax": 270
+        },
+        "polygon": [
+          {
+            "x": 272,
+            "y": 245
+          },
+          {
+            "x": 285,
+            "y": 245
+          },
+          {
+            "x": 285,
+            "y": 269
+          },
+          {
+            "x": 272,
+            "y": 269
+          }
+        ],
+        "replaceable": true,
+        "notes": "Dining chair at right side of table."
+      },
+      {
+        "id": "obj_15",
+        "category": "cadeira",
+        "subcategory": "dining_chair",
+        "roomType": "área de jantar/cozinha",
+        "confidence": 0.83,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 226,
+          "yMin": 281,
+          "xMax": 244,
+          "yMax": 294
+        },
+        "polygon": [
+          {
+            "x": 227,
+            "y": 281
+          },
+          {
+            "x": 243,
+            "y": 281
+          },
+          {
+            "x": 243,
+            "y": 294
+          },
+          {
+            "x": 227,
+            "y": 294
+          }
+        ],
+        "replaceable": true,
+        "notes": "Dining chair at lower side of table."
+      },
+      {
+        "id": "obj_16",
+        "category": "cadeira",
+        "subcategory": "dining_chair",
+        "roomType": "área de jantar/cozinha",
+        "confidence": 0.83,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 250,
+          "yMin": 281,
+          "xMax": 269,
+          "yMax": 294
+        },
+        "polygon": [
+          {
+            "x": 251,
+            "y": 281
+          },
+          {
+            "x": 268,
+            "y": 281
+          },
+          {
+            "x": 268,
+            "y": 294
+          },
+          {
+            "x": 251,
+            "y": 294
+          }
+        ],
+        "replaceable": true,
+        "notes": "Dining chair at lower side of table."
+      },
+      {
+        "id": "obj_17",
+        "category": "bancada",
+        "subcategory": null,
+        "roomType": "área 13,00 m²",
+        "confidence": 0.88,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 390,
+          "yMin": 132,
+          "xMax": 460,
+          "yMax": 163
+        },
+        "polygon": [
+          {
+            "x": 390,
+            "y": 132
+          },
+          {
+            "x": 460,
+            "y": 132
+          },
+          {
+            "x": 460,
+            "y": 163
+          },
+          {
+            "x": 390,
+            "y": 163
+          }
+        ],
+        "replaceable": false,
+        "notes": "Wall-mounted countertop with inset sink."
+      },
+      {
+        "id": "obj_18",
+        "category": "pia",
+        "subcategory": null,
+        "roomType": "área 13,00 m²",
+        "confidence": 0.93,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 402,
+          "yMin": 136,
+          "xMax": 442,
+          "yMax": 158
+        },
+        "polygon": [
+          {
+            "x": 402,
+            "y": 136
+          },
+          {
+            "x": 442,
+            "y": 136
+          },
+          {
+            "x": 442,
+            "y": 158
+          },
+          {
+            "x": 402,
+            "y": 158
+          }
+        ],
+        "replaceable": false,
+        "notes": "Inset sink in countertop."
+      },
+      {
+        "id": "obj_19",
+        "category": "cama",
+        "subcategory": "double_bed",
+        "roomType": "área 11,97 m²",
+        "confidence": 0.97,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 551,
+          "yMin": 135,
+          "xMax": 634,
+          "yMax": 241
+        },
+        "polygon": [
+          {
+            "x": 551,
+            "y": 135
+          },
+          {
+            "x": 634,
+            "y": 135
+          },
+          {
+            "x": 634,
+            "y": 241
+          },
+          {
+            "x": 551,
+            "y": 241
+          }
+        ],
+        "replaceable": true,
+        "notes": "Double bed."
+      },
+      {
+        "id": "obj_20",
+        "category": "armario",
+        "subcategory": "wardrobe",
+        "roomType": "área 3,71 m²",
+        "confidence": 0.88,
+        "orientationDegrees": 90,
+        "box": {
+          "xMin": 701,
+          "yMin": 132,
+          "xMax": 728,
+          "yMax": 286
+        },
+        "polygon": [
+          {
+            "x": 701,
+            "y": 132
+          },
+          {
+            "x": 728,
+            "y": 132
+          },
+          {
+            "x": 728,
+            "y": 286
+          },
+          {
+            "x": 701,
+            "y": 286
+          }
+        ],
+        "replaceable": true,
+        "notes": "Tall hatched wardrobe/cabinet beside bathroom."
+      },
+      {
+        "id": "obj_21",
+        "category": "vaso_sanitario",
+        "subcategory": null,
+        "roomType": "área 3,71 m²",
+        "confidence": 0.9,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 740,
+          "yMin": 241,
+          "xMax": 764,
+          "yMax": 273
+        },
+        "polygon": [
+          {
+            "x": 740,
+            "y": 241
+          },
+          {
+            "x": 764,
+            "y": 241
+          },
+          {
+            "x": 764,
+            "y": 273
+          },
+          {
+            "x": 740,
+            "y": 273
+          }
+        ],
+        "replaceable": false,
+        "notes": null
+      },
+      {
+        "id": "obj_22",
+        "category": "armario",
+        "subcategory": "wardrobe",
+        "roomType": "área 3,71 m²",
+        "confidence": 0.87,
+        "orientationDegrees": 90,
+        "box": {
+          "xMin": 807,
+          "yMin": 132,
+          "xMax": 837,
+          "yMax": 286
+        },
+        "polygon": [
+          {
+            "x": 807,
+            "y": 132
+          },
+          {
+            "x": 837,
+            "y": 132
+          },
+          {
+            "x": 837,
+            "y": 286
+          },
+          {
+            "x": 807,
+            "y": 286
+          }
+        ],
+        "replaceable": true,
+        "notes": "Tall hatched wardrobe/cabinet beside bathroom."
+      },
+      {
+        "id": "obj_23",
+        "category": "cama",
+        "subcategory": "single_bed",
+        "roomType": "área 9,26 m²",
+        "confidence": 0.95,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 905,
+          "yMin": 135,
+          "xMax": 959,
+          "yMax": 252
+        },
+        "polygon": [
+          {
+            "x": 905,
+            "y": 135
+          },
+          {
+            "x": 959,
+            "y": 135
+          },
+          {
+            "x": 959,
+            "y": 252
+          },
+          {
+            "x": 905,
+            "y": 252
+          }
+        ],
+        "replaceable": true,
+        "notes": "Single bed."
+      }
+    ],
+    "discardedObjects": [],
+    "objectMetrics": {
+      "totalReceived": 23,
+      "totalAccepted": 23,
+      "totalDiscarded": 0,
+      "discardReasonsGrouped": {},
+      "acceptedSizeStats": {
+        "minAreaPx": 234,
+        "maxAreaPx": 8798,
+        "minWidthPx": 14,
+        "maxWidthPx": 83,
+        "minHeightPx": 13,
+        "maxHeightPx": 154
+      }
+    },
+    "acceptedRooms": [
+      {
+        "id": "room_1",
+        "type": "comodo",
+        "label": "banheiro",
+        "confidence": 0.77,
+        "box": {
+          "xMin": 62,
+          "yMin": 125,
+          "xMax": 135,
+          "yMax": 345
+        }
+      },
+      {
+        "id": "room_2",
+        "type": "comodo",
+        "label": "área de jantar/cozinha",
+        "confidence": 0.7,
+        "box": {
+          "xMin": 135,
+          "yMin": 126,
+          "xMax": 338,
+          "yMax": 344
+        }
+      },
+      {
+        "id": "room_3",
+        "type": "comodo",
+        "label": "área 13,00 m²",
+        "confidence": 0.95,
+        "box": {
+          "xMin": 340,
+          "yMin": 128,
+          "xMax": 501,
+          "yMax": 344
+        }
+      },
+      {
+        "id": "room_4",
+        "type": "comodo",
+        "label": "área 11,97 m²",
+        "confidence": 0.96,
+        "box": {
+          "xMin": 502,
+          "yMin": 129,
+          "xMax": 656,
+          "yMax": 288
+        }
+      },
+      {
+        "id": "room_5",
+        "type": "comodo",
+        "label": "área 3,71 m²",
+        "confidence": 0.93,
+        "box": {
+          "xMin": 729,
+          "yMin": 129,
+          "xMax": 806,
+          "yMax": 288
+        }
+      },
+      {
+        "id": "room_6",
+        "type": "comodo",
+        "label": "área 9,26 m²",
+        "confidence": 0.95,
+        "box": {
+          "xMin": 837,
+          "yMin": 129,
+          "xMax": 968,
+          "yMax": 288
+        }
+      }
+    ],
+    "discardedRooms": [],
+    "roomMetrics": {
+      "totalReceived": 6,
+      "totalAccepted": 6,
+      "totalDiscarded": 0,
+      "discardReasonsGrouped": {},
+      "acceptedSizeStats": {
+        "minAreaPx": 12243,
+        "maxAreaPx": 44254,
+        "minWidthPx": 73,
+        "maxWidthPx": 203,
+        "minHeightPx": 159,
+        "maxHeightPx": 220
+      }
+    },
+    "requestId": "resp_0bafd04dfecc9ce6016aae154746b887d287fcc73ac9358250",
+    "elapsedMs": 42973
+  },
+  "tile-2.json": {
+    "variant": "tile",
+    "cropWidth": 1053,
+    "cropHeight": 415,
+    "acceptedObjects": [
+      {
+        "id": "obj_1",
+        "category": "pia",
+        "subcategory": null,
+        "roomType": "comodo",
+        "confidence": 0.93,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 38,
+          "yMin": 153,
+          "xMax": 64,
+          "yMax": 171
+        },
+        "polygon": [
+          {
+            "x": 38,
+            "y": 153
+          },
+          {
+            "x": 59,
+            "y": 153
+          },
+          {
+            "x": 64,
+            "y": 158
+          },
+          {
+            "x": 64,
+            "y": 171
+          },
+          {
+            "x": 38,
+            "y": 171
+          }
+        ],
+        "replaceable": true,
+        "notes": "Small bathroom sink."
+      },
+      {
+        "id": "obj_2",
+        "category": "vaso_sanitario",
+        "subcategory": null,
+        "roomType": "comodo",
+        "confidence": 0.97,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 37,
+          "yMin": 189,
+          "xMax": 63,
+          "yMax": 211
+        },
+        "polygon": [
+          {
+            "x": 37,
+            "y": 189
+          },
+          {
+            "x": 56,
+            "y": 189
+          },
+          {
+            "x": 63,
+            "y": 195
+          },
+          {
+            "x": 63,
+            "y": 211
+          },
+          {
+            "x": 37,
+            "y": 211
+          }
+        ],
+        "replaceable": true,
+        "notes": null
+      },
+      {
+        "id": "obj_3",
+        "category": "armario",
+        "subcategory": "wardrobe",
+        "roomType": "comodo",
+        "confidence": 0.88,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 109,
+          "yMin": 133,
+          "xMax": 135,
+          "yMax": 282
+        },
+        "polygon": [
+          {
+            "x": 109,
+            "y": 133
+          },
+          {
+            "x": 135,
+            "y": 133
+          },
+          {
+            "x": 135,
+            "y": 282
+          },
+          {
+            "x": 109,
+            "y": 282
+          }
+        ],
+        "replaceable": true,
+        "notes": "Tall wardrobe/cabinet drawn with repeated internal lines."
+      },
+      {
+        "id": "obj_4",
+        "category": "cama",
+        "subcategory": "single_bed",
+        "roomType": "comodo",
+        "confidence": 0.97,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 202,
+          "yMin": 136,
+          "xMax": 249,
+          "yMax": 242
+        },
+        "polygon": [
+          {
+            "x": 203,
+            "y": 136
+          },
+          {
+            "x": 241,
+            "y": 136
+          },
+          {
+            "x": 241,
+            "y": 159
+          },
+          {
+            "x": 249,
+            "y": 167
+          },
+          {
+            "x": 249,
+            "y": 242
+          },
+          {
+            "x": 203,
+            "y": 242
+          }
+        ],
+        "replaceable": true,
+        "notes": null
+      },
+      {
+        "id": "obj_5",
+        "category": "mobiliario_outro",
+        "subcategory": "tv_console_or_cabinet",
+        "roomType": "comodo",
+        "confidence": 0.58,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 294,
+          "yMin": 158,
+          "xMax": 310,
+          "yMax": 231
+        },
+        "polygon": [
+          {
+            "x": 294,
+            "y": 158
+          },
+          {
+            "x": 310,
+            "y": 158
+          },
+          {
+            "x": 310,
+            "y": 231
+          },
+          {
+            "x": 294,
+            "y": 231
+          }
+        ],
+        "replaceable": true,
+        "notes": "Narrow outlined furnishing; exact function is unclear."
+      },
+      {
+        "id": "obj_6",
+        "category": "sofa",
+        "subcategory": null,
+        "roomType": "comodo",
+        "confidence": 0.93,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 393,
+          "yMin": 140,
+          "xMax": 431,
+          "yMax": 240
+        },
+        "polygon": [
+          {
+            "x": 394,
+            "y": 140
+          },
+          {
+            "x": 426,
+            "y": 140
+          },
+          {
+            "x": 431,
+            "y": 145
+          },
+          {
+            "x": 431,
+            "y": 235
+          },
+          {
+            "x": 426,
+            "y": 240
+          },
+          {
+            "x": 394,
+            "y": 240
+          }
+        ],
+        "replaceable": true,
+        "notes": null
+      },
+      {
+        "id": "obj_7",
+        "category": "escada",
+        "subcategory": "L_shaped_staircase",
+        "roomType": null,
+        "confidence": 0.99,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 325,
+          "yMin": 237,
+          "xMax": 568,
+          "yMax": 352
+        },
+        "polygon": [
+          {
+            "x": 501,
+            "y": 237
+          },
+          {
+            "x": 560,
+            "y": 237
+          },
+          {
+            "x": 560,
+            "y": 352
+          },
+          {
+            "x": 325,
+            "y": 352
+          },
+          {
+            "x": 325,
+            "y": 286
+          },
+          {
+            "x": 501,
+            "y": 286
+          }
+        ],
+        "replaceable": false,
+        "notes": "L-shaped staircase with lower run and turning upper flight."
+      },
+      {
+        "id": "obj_8",
+        "category": "veiculo",
+        "subcategory": "car",
+        "roomType": "comodo",
+        "confidence": 0.98,
+        "orientationDegrees": 0,
+        "box": {
+          "xMin": 668,
+          "yMin": 132,
+          "xMax": 898,
+          "yMax": 234
+        },
+        "polygon": [
+          {
+            "x": 690,
+            "y": 137
+          },
+          {
+            "x": 847,
+            "y": 137
+          },
+          {
+            "x": 878,
+            "y": 147
+          },
+          {
+            "x": 896,
+            "y": 173
+          },
+          {
+            "x": 896,
+            "y": 199
+          },
+          {
+            "x": 878,
+            "y": 224
+          },
+          {
+            "x": 847,
+            "y": 232
+          },
+          {
+            "x": 690,
+            "y": 232
+          },
+          {
+            "x": 671,
+            "y": 220
+          },
+          {
+            "x": 668,
+            "y": 157
+          }
+        ],
+        "replaceable": true,
+        "notes": null
+      }
+    ],
+    "discardedObjects": [],
+    "objectMetrics": {
+      "totalReceived": 8,
+      "totalAccepted": 8,
+      "totalDiscarded": 0,
+      "discardReasonsGrouped": {},
+      "acceptedSizeStats": {
+        "minAreaPx": 468,
+        "maxAreaPx": 27945,
+        "minWidthPx": 16,
+        "maxWidthPx": 243,
+        "minHeightPx": 18,
+        "maxHeightPx": 149
+      }
+    },
+    "acceptedRooms": [
+      {
+        "id": "room_1",
+        "type": "comodo",
+        "label": "Área: 3,71 m²",
+        "confidence": 0.98,
+        "box": {
+          "xMin": 31,
+          "yMin": 130,
+          "xMax": 103,
+          "yMax": 285
+        }
+      },
+      {
+        "id": "room_2",
+        "type": "comodo",
+        "label": "Área: 9,26 m²",
+        "confidence": 0.98,
+        "box": {
+          "xMin": 106,
+          "yMin": 130,
+          "xMax": 279,
+          "yMax": 285
+        }
+      },
+      {
+        "id": "room_3",
+        "type": "comodo",
+        "label": "Área: 23,76 m²",
+        "confidence": 0.98,
+        "box": {
+          "xMin": 280,
+          "yMin": 130,
+          "xMax": 636,
+          "yMax": 285
+        }
+      },
+      {
+        "id": "room_4",
+        "type": "comodo",
+        "label": null,
+        "confidence": 0.93,
+        "box": {
+          "xMin": 638,
+          "yMin": 47,
+          "xMax": 915,
+          "yMax": 355
+        }
+      }
+    ],
+    "discardedRooms": [],
+    "roomMetrics": {
+      "totalReceived": 4,
+      "totalAccepted": 4,
+      "totalDiscarded": 0,
+      "discardReasonsGrouped": {},
+      "acceptedSizeStats": {
+        "minAreaPx": 11160,
+        "maxAreaPx": 85316,
+        "minWidthPx": 72,
+        "maxWidthPx": 356,
+        "minHeightPx": 155,
+        "maxHeightPx": 308
+      }
+    },
+    "requestId": "resp_0798782890b58600016aae1572538887d286387ea21024edcf",
+    "elapsedMs": 28592
+  }
+}

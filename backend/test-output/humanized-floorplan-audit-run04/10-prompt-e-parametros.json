@@ -1,0 +1,10 @@
+{
+  "endpoint": "https://api.bfl.ai/v1/flux-pro-1.0-fill (BFL_BASE_URL + /v1/flux-pro-1.0-fill, providers/bflFill.ts)",
+  "model": "flux-pro-1.0-fill",
+  "steps": "não enviado explicitamente pelo runner -> default HUMANIZED_FLOORPLAN_DEFAULT_STEPS = 50",
+  "guidance": "não enviado explicitamente pelo runner -> default HUMANIZED_FLOORPLAN_DEFAULT_GUIDANCE = 30",
+  "output_format": "png (fixo, useful-area fix — sempre PNG desde a correção de margens)",
+  "safety_tolerance": 2,
+  "dimensõesEnviadas": "1755x487 (recorte útil, NÃO a imagem original 1755x1241)",
+  "promptCompleto": "Humanize this architectural floor plan inside the editable (white mask) area only.\n\nAdd realistic materials, textures, colors, warm lighting and a professional presentation quality to the floor and any surfaces within the editable area.\n\nKeep the overall floor plan legible as a top-down architectural floor plan.\n\nDo not add new walls, rooms or structural elements.\n\nDo not add, invent or draw any text, letters, numbers, labels, dimension marks or annotations anywhere in the image — not even stylized or decorative ones. The floor plan's existing labels are already outside the editable area and must not be duplicated, echoed or imitated nearby.\n\nDetected context, for guidance only (do not draw any labels, text or numbers based on this): Rooms detected: Área: 3,71 m², Área: 9,26 m², Área: 23,76 m², área 11,97 m², área 13,00 m², comodo, banheiro. Existing furniture/fixtures already drawn — humanize them in place, keeping their position and orientation: 3x cadeira."
+}

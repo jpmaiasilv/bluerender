@@ -1,0 +1,568 @@
+{
+  "provider": "openai",
+  "model": "gpt-5.6-terra",
+  "callCount": 1,
+  "totalTimeMs": 33016,
+  "callOutcomes": [
+    {
+      "cropId": "overview",
+      "variant": "overview",
+      "success": true,
+      "elapsedMs": 31994,
+      "detectionCount": 29
+    }
+  ],
+  "requestIds": [
+    "resp_0f3dc2fa3f0e18f9016aad91795a4887d291a73e94f878c38a"
+  ],
+  "usageTotals": {
+    "inputTokens": 1493,
+    "outputTokens": 2525,
+    "totalTokens": 4018
+  },
+  "modelWarnings": [
+    "[overview] The leftmost narrow service-room appliance symbols are difficult to distinguish precisely at this overview scale.",
+    "[overview] The narrow furnishings in the 23.76 m² area may be cabinet/seating elements; their exact classifications are uncertain."
+  ],
+  "originalWidth": 1755,
+  "originalHeight": 1241,
+  "usefulArea": {
+    "x": 0,
+    "y": 413,
+    "width": 1755,
+    "height": 415
+  },
+  "crops": [
+    {
+      "id": "overview",
+      "rectInOriginal": {
+        "x": 0,
+        "y": 413,
+        "width": 1755,
+        "height": 415
+      },
+      "sentWidth": 1536,
+      "sentHeight": 363
+    }
+  ],
+  "rooms": [
+    {
+      "id": "room_8",
+      "type": "comodo",
+      "label": "garage",
+      "confidence": 0.95,
+      "boxOriginalPixels": {
+        "xMin": 1360.810546875,
+        "xMax": 1619.033203125,
+        "yMin": 459.8732782369146,
+        "yMax": 757.1184573002755
+      }
+    },
+    {
+      "id": "room_5",
+      "type": "comodo",
+      "label": "bathroom A: 3.71 m²",
+      "confidence": 0.94,
+      "boxOriginalPixels": {
+        "xMin": 732.392578125,
+        "xMax": 804.375,
+        "yMin": 541.0440771349862,
+        "yMax": 699.9559228650137
+      }
+    },
+    {
+      "id": "room_4",
+      "type": "comodo",
+      "label": "area A: 11.97 m²",
+      "confidence": 0.92,
+      "boxOriginalPixels": {
+        "xMin": 505.01953125000006,
+        "xMax": 731.25,
+        "yMin": 541.0440771349862,
+        "yMax": 699.9559228650137
+      }
+    },
+    {
+      "id": "room_6",
+      "type": "comodo",
+      "label": "area A: 9.26 m²",
+      "confidence": 0.92,
+      "boxOriginalPixels": {
+        "xMin": 805.517578125,
+        "xMax": 968.9062500000001,
+        "yMin": 541.0440771349862,
+        "yMax": 755.9752066115702
+      }
+    },
+    {
+      "id": "room_3",
+      "type": "comodo",
+      "label": "area A: 13.00 m²",
+      "confidence": 0.88,
+      "boxOriginalPixels": {
+        "xMin": 340.48828125,
+        "xMax": 502.73437499999994,
+        "yMin": 539.900826446281,
+        "yMax": 755.9752066115702
+      }
+    },
+    {
+      "id": "room_7",
+      "type": "comodo",
+      "label": "area A: 23.76 m²",
+      "confidence": 0.88,
+      "boxOriginalPixels": {
+        "xMin": 970.048828125,
+        "xMax": 1337.958984375,
+        "yMin": 539.900826446281,
+        "yMax": 757.1184573002755
+      }
+    },
+    {
+      "id": "room_2",
+      "type": "comodo",
+      "label": "dining/kitchen area",
+      "confidence": 0.8,
+      "boxOriginalPixels": {
+        "xMin": 132.5390625,
+        "xMax": 311.923828125,
+        "yMin": 538.7575757575758,
+        "yMax": 757.1184573002755
+      }
+    },
+    {
+      "id": "room_1",
+      "type": "comodo",
+      "label": "bathroom/service area",
+      "confidence": 0.72,
+      "boxOriginalPixels": {
+        "xMin": 60.55664062500001,
+        "xMax": 131.396484375,
+        "yMin": 538.7575757575758,
+        "yMax": 757.1184573002755
+      }
+    }
+  ],
+  "objects": [
+    {
+      "id": "obj_20",
+      "category": "escada",
+      "subcategory": null,
+      "roomType": "area A: 23.76 m²",
+      "confidence": 0.99,
+      "orientationDegrees": 0,
+      "boxOriginalPixels": {
+        "xMin": 1028.3203125,
+        "xMax": 1273.974609375,
+        "yMin": 646.2231404958677,
+        "yMax": 758.2617079889807
+      },
+      "polygonOriginalPixels": null,
+      "modelReplaceable": false,
+      "notes": null,
+      "replaceable": false,
+      "uncertain": true,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (84% > 35%)"
+    },
+    {
+      "id": "obj_21",
+      "category": "veiculo",
+      "subcategory": "car",
+      "roomType": "garage",
+      "confidence": 0.98,
+      "orientationDegrees": 90,
+      "boxOriginalPixels": {
+        "xMin": 1367.666015625,
+        "xMax": 1600.751953125,
+        "yMin": 544.4738292011019,
+        "yMax": 643.9366391184573
+      },
+      "polygonOriginalPixels": null,
+      "modelReplaceable": true,
+      "notes": null,
+      "replaceable": false,
+      "uncertain": true,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (63% > 35%)"
+    },
+    {
+      "id": "obj_12",
+      "category": "cama",
+      "subcategory": "double bed",
+      "roomType": "area A: 11.97 m²",
+      "confidence": 0.97,
+      "orientationDegrees": 0,
+      "boxOriginalPixels": {
+        "xMin": 526.728515625,
+        "xMax": 659.267578125,
+        "yMin": 547.9035812672176,
+        "yMax": 655.3691460055097
+      },
+      "polygonOriginalPixels": null,
+      "modelReplaceable": true,
+      "notes": null,
+      "replaceable": false,
+      "uncertain": true,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (82% > 35%)"
+    },
+    {
+      "id": "obj_7",
+      "category": "mesa",
+      "subcategory": "dining table",
+      "roomType": "dining/kitchen area",
+      "confidence": 0.96,
+      "orientationDegrees": 0,
+      "boxOriginalPixels": {
+        "xMin": 217.08984375,
+        "xMax": 276.50390625,
+        "yMin": 589.060606060606,
+        "yMax": 687.3801652892562
+      },
+      "polygonOriginalPixels": null,
+      "modelReplaceable": true,
+      "notes": null,
+      "replaceable": false,
+      "uncertain": true,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (80% > 35%)"
+    },
+    {
+      "id": "obj_17",
+      "category": "cama",
+      "subcategory": "single bed",
+      "roomType": "area A: 9.26 m²",
+      "confidence": 0.96,
+      "orientationDegrees": 0,
+      "boxOriginalPixels": {
+        "xMin": 877.5,
+        "xMax": 965.4785156250001,
+        "yMin": 547.9035812672176,
+        "yMax": 654.2258953168044
+      },
+      "polygonOriginalPixels": null,
+      "modelReplaceable": true,
+      "notes": null,
+      "replaceable": false,
+      "uncertain": true,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (83% > 35%)"
+    },
+    {
+      "id": "obj_8",
+      "category": "cadeira",
+      "subcategory": "dining chair set",
+      "roomType": "dining/kitchen area",
+      "confidence": 0.94,
+      "orientationDegrees": 0,
+      "boxOriginalPixels": {
+        "xMin": 210.234375,
+        "xMax": 287.9296875,
+        "yMin": 571.9118457300276,
+        "yMax": 705.67217630854
+      },
+      "polygonOriginalPixels": null,
+      "modelReplaceable": true,
+      "notes": "Multiple chairs surrounding the dining table, reported as one grouped object.",
+      "replaceable": false,
+      "uncertain": true,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (74% > 35%)"
+    },
+    {
+      "id": "obj_14",
+      "category": "vaso_sanitario",
+      "subcategory": null,
+      "roomType": "bathroom A: 3.71 m²",
+      "confidence": 0.92,
+      "orientationDegrees": 90,
+      "boxOriginalPixels": {
+        "xMin": 740.390625,
+        "xMax": 768.955078125,
+        "yMin": 599.3498622589532,
+        "yMax": 623.358126721763
+      },
+      "polygonOriginalPixels": null,
+      "modelReplaceable": false,
+      "notes": null,
+      "replaceable": false,
+      "uncertain": true,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+    },
+    {
+      "id": "obj_2",
+      "category": "vaso_sanitario",
+      "subcategory": null,
+      "roomType": "bathroom/service area",
+      "confidence": 0.91,
+      "orientationDegrees": 90,
+      "boxOriginalPixels": {
+        "xMin": 63.98437500000001,
+        "xMax": 98.26171875,
+        "yMin": 590.2038567493113,
+        "yMax": 617.641873278237
+      },
+      "polygonOriginalPixels": null,
+      "modelReplaceable": false,
+      "notes": null,
+      "replaceable": false,
+      "uncertain": true,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+    },
+    {
+      "id": "obj_10",
+      "category": "bancada",
+      "subcategory": "kitchen counter",
+      "roomType": "area A: 13.00 m²",
+      "confidence": 0.9,
+      "orientationDegrees": 0,
+      "boxOriginalPixels": {
+        "xMin": 349.62890625,
+        "xMax": 467.31445312500006,
+        "yMin": 544.4738292011019,
+        "yMax": 581.0578512396694
+      },
+      "polygonOriginalPixels": null,
+      "modelReplaceable": false,
+      "notes": null,
+      "replaceable": false,
+      "uncertain": true,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (87% > 35%)"
+    },
+    {
+      "id": "obj_11",
+      "category": "pia",
+      "subcategory": "kitchen sink",
+      "roomType": "area A: 13.00 m²",
+      "confidence": 0.83,
+      "orientationDegrees": 0,
+      "boxOriginalPixels": {
+        "xMin": 401.044921875,
+        "xMax": 442.177734375,
+        "yMin": 549.0468319559229,
+        "yMax": 574.1983471074379
+      },
+      "polygonOriginalPixels": null,
+      "modelReplaceable": false,
+      "notes": null,
+      "replaceable": false,
+      "uncertain": true,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+    },
+    {
+      "id": "obj_3",
+      "category": "pia",
+      "subcategory": null,
+      "roomType": "bathroom/service area",
+      "confidence": 0.81,
+      "orientationDegrees": 0,
+      "boxOriginalPixels": {
+        "xMin": 65.126953125,
+        "xMax": 89.12109375,
+        "yMin": 545.6170798898072,
+        "yMax": 570.7685950413223
+      },
+      "polygonOriginalPixels": null,
+      "modelReplaceable": false,
+      "notes": null,
+      "replaceable": false,
+      "uncertain": true,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+    },
+    {
+      "id": "obj_9",
+      "category": "bancada",
+      "subcategory": "kitchen counter",
+      "roomType": "dining/kitchen area",
+      "confidence": 0.81,
+      "orientationDegrees": 0,
+      "boxOriginalPixels": {
+        "xMin": 132.5390625,
+        "xMax": 172.529296875,
+        "yMin": 538.7575757575758,
+        "yMax": 722.8209366391184
+      },
+      "polygonOriginalPixels": null,
+      "modelReplaceable": false,
+      "notes": "Long counter/cabinet run.",
+      "replaceable": false,
+      "uncertain": true,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (96% > 35%)"
+    },
+    {
+      "id": "obj_15",
+      "category": "pia",
+      "subcategory": null,
+      "roomType": "bathroom A: 3.71 m²",
+      "confidence": 0.78,
+      "orientationDegrees": 0,
+      "boxOriginalPixels": {
+        "xMin": 740.390625,
+        "xMax": 763.2421875,
+        "yMin": 656.5123966942149,
+        "yMax": 686.236914600551
+      },
+      "polygonOriginalPixels": null,
+      "modelReplaceable": false,
+      "notes": null,
+      "replaceable": false,
+      "uncertain": true,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+    },
+    {
+      "id": "obj_4",
+      "category": "pia",
+      "subcategory": null,
+      "roomType": "bathroom/service area",
+      "confidence": 0.75,
+      "orientationDegrees": 0,
+      "boxOriginalPixels": {
+        "xMin": 137.109375,
+        "xMax": 164.53125,
+        "yMin": 632.5041322314049,
+        "yMax": 662.228650137741
+      },
+      "polygonOriginalPixels": null,
+      "modelReplaceable": false,
+      "notes": null,
+      "replaceable": false,
+      "uncertain": true,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (96% > 35%)"
+    },
+    {
+      "id": "obj_19",
+      "category": "sofa",
+      "subcategory": null,
+      "roomType": "area A: 23.76 m²",
+      "confidence": 0.7,
+      "orientationDegrees": 0,
+      "boxOriginalPixels": {
+        "xMin": 1093.447265625,
+        "xMax": 1133.4375,
+        "yMin": 550.1900826446281,
+        "yMax": 654.2258953168044
+      },
+      "polygonOriginalPixels": null,
+      "modelReplaceable": true,
+      "notes": "Long narrow seating/furniture symbol; exact type is somewhat unclear.",
+      "replaceable": false,
+      "uncertain": true,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (99% > 35%)"
+    },
+    {
+      "id": "obj_1",
+      "category": "chuveiro",
+      "subcategory": null,
+      "roomType": "bathroom/service area",
+      "confidence": 0.69,
+      "orientationDegrees": 0,
+      "boxOriginalPixels": {
+        "xMin": 132.5390625,
+        "xMax": 172.529296875,
+        "yMin": 538.7575757575758,
+        "yMax": 589.060606060606
+      },
+      "polygonOriginalPixels": null,
+      "modelReplaceable": false,
+      "notes": "Small square shower enclosure.",
+      "replaceable": false,
+      "uncertain": true,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+    },
+    {
+      "id": "obj_13",
+      "category": "armario",
+      "subcategory": null,
+      "roomType": "area A: 11.97 m²",
+      "confidence": 0.68,
+      "orientationDegrees": 0,
+      "boxOriginalPixels": {
+        "xMin": 700.400390625,
+        "xMax": 728.96484375,
+        "yMin": 544.4738292011019,
+        "yMax": 649.6528925619834
+      },
+      "polygonOriginalPixels": null,
+      "modelReplaceable": true,
+      "notes": "Narrow built-in/storage element.",
+      "replaceable": false,
+      "uncertain": true,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+    },
+    {
+      "id": "obj_16",
+      "category": "chuveiro",
+      "subcategory": null,
+      "roomType": "bathroom A: 3.71 m²",
+      "confidence": 0.65,
+      "orientationDegrees": 0,
+      "boxOriginalPixels": {
+        "xMin": 734.677734375,
+        "xMax": 772.3828125,
+        "yMin": 544.4738292011019,
+        "yMax": 591.3471074380166
+      },
+      "polygonOriginalPixels": null,
+      "modelReplaceable": false,
+      "notes": "Shower area inferred from fixture enclosure and drain/fixture symbols.",
+      "replaceable": false,
+      "uncertain": true,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+    },
+    {
+      "id": "obj_18",
+      "category": "armario",
+      "subcategory": null,
+      "roomType": "area A: 23.76 m²",
+      "confidence": 0.65,
+      "orientationDegrees": 0,
+      "boxOriginalPixels": {
+        "xMin": 992.9003906250001,
+        "xMax": 1018.037109375,
+        "yMin": 549.0468319559229,
+        "yMax": 656.5123966942149
+      },
+      "polygonOriginalPixels": null,
+      "modelReplaceable": true,
+      "notes": "Narrow vertical furniture/storage element.",
+      "replaceable": false,
+      "uncertain": true,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (99% > 35%)"
+    },
+    {
+      "id": "obj_5",
+      "category": "eletrodomestico",
+      "subcategory": "washer",
+      "roomType": "bathroom/service area",
+      "confidence": 0.54,
+      "orientationDegrees": 0,
+      "boxOriginalPixels": {
+        "xMin": 65.126953125,
+        "xMax": 90.263671875,
+        "yMin": 691.9531680440771,
+        "yMax": 747.9724517906336
+      },
+      "polygonOriginalPixels": null,
+      "modelReplaceable": true,
+      "notes": "Tall appliance symbol; exact appliance is somewhat unclear.",
+      "replaceable": false,
+      "uncertain": true,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (63% > 35%)"
+    },
+    {
+      "id": "obj_6",
+      "category": "eletrodomestico",
+      "subcategory": "washer",
+      "roomType": "bathroom/service area",
+      "confidence": 0.54,
+      "orientationDegrees": 0,
+      "boxOriginalPixels": {
+        "xMin": 95.9765625,
+        "xMax": 123.3984375,
+        "yMin": 693.0964187327825,
+        "yMax": 749.1157024793388
+      },
+      "polygonOriginalPixels": null,
+      "modelReplaceable": true,
+      "notes": "Tall appliance symbol; exact appliance is somewhat unclear.",
+      "replaceable": false,
+      "uncertain": true,
+      "reason": "incerto: sobreposição com estrutura protegida acima do limite (76% > 35%)"
+    }
+  ]
+}

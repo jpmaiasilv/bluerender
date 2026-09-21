@@ -1,0 +1,11 @@
+{
+  "jobId": "7858d58c-02f7-422d-8659-0eedc677b9bb",
+  "stage": "error",
+  "providerStatus": "Ready",
+  "startedAt": 1789791357669,
+  "error": {
+    "code": "GENERATION_FAILED",
+    "message": "A verificação visual confirmou 4 elemento(s) de texto novo/corrompido (confiança 96%): A imagem gerada inclui inscrições ilegíveis novas na área de jantar e garagem, além de uma marca d’água textual no canto inferior direito.",
+    "details": "rejectionKind=confirmed_new_text, protectedRegionDeviation=0.0016, suspiciousTextBlobs=18"
+  }
+}

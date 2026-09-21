@@ -1,0 +1,1403 @@
+[
+  {
+    "id": "obj_7",
+    "category": "escada",
+    "subcategory": "L_shaped_staircase",
+    "roomType": null,
+    "confidence": 0.99,
+    "orientationDegrees": 0,
+    "boxOriginalPixels": {
+      "xMin": 1027,
+      "xMax": 1270,
+      "yMin": 650,
+      "yMax": 765
+    },
+    "polygonOriginalPixels": [
+      {
+        "x": 1203,
+        "y": 650
+      },
+      {
+        "x": 1262,
+        "y": 650
+      },
+      {
+        "x": 1262,
+        "y": 765
+      },
+      {
+        "x": 1027,
+        "y": 765
+      },
+      {
+        "x": 1027,
+        "y": 699
+      },
+      {
+        "x": 1203,
+        "y": 699
+      }
+    ],
+    "modelReplaceable": false,
+    "notes": "L-shaped staircase with lower run and turning upper flight.",
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+  },
+  {
+    "id": "obj_8",
+    "category": "veiculo",
+    "subcategory": "car",
+    "roomType": "comodo",
+    "confidence": 0.98,
+    "orientationDegrees": 0,
+    "boxOriginalPixels": {
+      "xMin": 1370,
+      "xMax": 1600,
+      "yMin": 545,
+      "yMax": 647
+    },
+    "polygonOriginalPixels": [
+      {
+        "x": 1392,
+        "y": 550
+      },
+      {
+        "x": 1549,
+        "y": 550
+      },
+      {
+        "x": 1580,
+        "y": 560
+      },
+      {
+        "x": 1598,
+        "y": 586
+      },
+      {
+        "x": 1598,
+        "y": 612
+      },
+      {
+        "x": 1580,
+        "y": 637
+      },
+      {
+        "x": 1549,
+        "y": 645
+      },
+      {
+        "x": 1392,
+        "y": 645
+      },
+      {
+        "x": 1373,
+        "y": 633
+      },
+      {
+        "x": 1370,
+        "y": 570
+      }
+    ],
+    "modelReplaceable": true,
+    "notes": null,
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (59% > 35%)"
+  },
+  {
+    "id": "obj_19",
+    "category": "cama",
+    "subcategory": "double_bed",
+    "roomType": "área 11,97 m²",
+    "confidence": 0.97,
+    "orientationDegrees": 0,
+    "boxOriginalPixels": {
+      "xMin": 551,
+      "xMax": 634,
+      "yMin": 548,
+      "yMax": 654
+    },
+    "polygonOriginalPixels": [
+      {
+        "x": 551,
+        "y": 548
+      },
+      {
+        "x": 634,
+        "y": 548
+      },
+      {
+        "x": 634,
+        "y": 654
+      },
+      {
+        "x": 551,
+        "y": 654
+      }
+    ],
+    "modelReplaceable": true,
+    "notes": "Double bed.",
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (97% > 35%)"
+  },
+  {
+    "id": "obj_2",
+    "category": "vaso_sanitario",
+    "subcategory": null,
+    "roomType": "comodo",
+    "confidence": 0.97,
+    "orientationDegrees": 0,
+    "boxOriginalPixels": {
+      "xMin": 739,
+      "xMax": 765,
+      "yMin": 602,
+      "yMax": 624
+    },
+    "polygonOriginalPixels": [
+      {
+        "x": 739,
+        "y": 602
+      },
+      {
+        "x": 758,
+        "y": 602
+      },
+      {
+        "x": 765,
+        "y": 608
+      },
+      {
+        "x": 765,
+        "y": 624
+      },
+      {
+        "x": 739,
+        "y": 624
+      }
+    ],
+    "modelReplaceable": true,
+    "notes": null,
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+  },
+  {
+    "id": "obj_4",
+    "category": "cama",
+    "subcategory": "single_bed",
+    "roomType": "comodo",
+    "confidence": 0.97,
+    "orientationDegrees": 0,
+    "boxOriginalPixels": {
+      "xMin": 904,
+      "xMax": 951,
+      "yMin": 549,
+      "yMax": 655
+    },
+    "polygonOriginalPixels": [
+      {
+        "x": 905,
+        "y": 549
+      },
+      {
+        "x": 943,
+        "y": 549
+      },
+      {
+        "x": 943,
+        "y": 572
+      },
+      {
+        "x": 951,
+        "y": 580
+      },
+      {
+        "x": 951,
+        "y": 655
+      },
+      {
+        "x": 905,
+        "y": 655
+      }
+    ],
+    "modelReplaceable": true,
+    "notes": null,
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (85% > 35%)"
+  },
+  {
+    "id": "obj_6",
+    "category": "mesa",
+    "subcategory": "dining_table",
+    "roomType": "área de jantar/cozinha",
+    "confidence": 0.96,
+    "orientationDegrees": 0,
+    "boxOriginalPixels": {
+      "xMin": 228,
+      "xMax": 271,
+      "yMin": 588,
+      "yMax": 693
+    },
+    "polygonOriginalPixels": [
+      {
+        "x": 228,
+        "y": 588
+      },
+      {
+        "x": 271,
+        "y": 588
+      },
+      {
+        "x": 271,
+        "y": 693
+      },
+      {
+        "x": 228,
+        "y": 693
+      }
+    ],
+    "modelReplaceable": true,
+    "notes": "Rectangular dining table.",
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (72% > 35%)"
+  },
+  {
+    "id": "obj_3",
+    "category": "vaso_sanitario",
+    "subcategory": null,
+    "roomType": "banheiro",
+    "confidence": 0.95,
+    "orientationDegrees": 90,
+    "boxOriginalPixels": {
+      "xMin": 64,
+      "xMax": 99,
+      "yMin": 593,
+      "yMax": 617
+    },
+    "polygonOriginalPixels": [
+      {
+        "x": 64,
+        "y": 594
+      },
+      {
+        "x": 80,
+        "y": 593
+      },
+      {
+        "x": 94,
+        "y": 597
+      },
+      {
+        "x": 99,
+        "y": 604
+      },
+      {
+        "x": 95,
+        "y": 613
+      },
+      {
+        "x": 81,
+        "y": 617
+      },
+      {
+        "x": 64,
+        "y": 615
+      }
+    ],
+    "modelReplaceable": false,
+    "notes": null,
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+  },
+  {
+    "id": "obj_18",
+    "category": "pia",
+    "subcategory": null,
+    "roomType": "área 13,00 m²",
+    "confidence": 0.93,
+    "orientationDegrees": 0,
+    "boxOriginalPixels": {
+      "xMin": 402,
+      "xMax": 442,
+      "yMin": 549,
+      "yMax": 571
+    },
+    "polygonOriginalPixels": [
+      {
+        "x": 402,
+        "y": 549
+      },
+      {
+        "x": 442,
+        "y": 549
+      },
+      {
+        "x": 442,
+        "y": 571
+      },
+      {
+        "x": 402,
+        "y": 571
+      }
+    ],
+    "modelReplaceable": false,
+    "notes": "Inset sink in countertop.",
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+  },
+  {
+    "id": "obj_1",
+    "category": "pia",
+    "subcategory": null,
+    "roomType": "comodo",
+    "confidence": 0.93,
+    "orientationDegrees": 0,
+    "boxOriginalPixels": {
+      "xMin": 740,
+      "xMax": 766,
+      "yMin": 566,
+      "yMax": 584
+    },
+    "polygonOriginalPixels": [
+      {
+        "x": 740,
+        "y": 566
+      },
+      {
+        "x": 761,
+        "y": 566
+      },
+      {
+        "x": 766,
+        "y": 571
+      },
+      {
+        "x": 766,
+        "y": 584
+      },
+      {
+        "x": 740,
+        "y": 584
+      }
+    ],
+    "modelReplaceable": true,
+    "notes": "Small bathroom sink.",
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+  },
+  {
+    "id": "obj_6",
+    "category": "sofa",
+    "subcategory": null,
+    "roomType": "comodo",
+    "confidence": 0.93,
+    "orientationDegrees": 0,
+    "boxOriginalPixels": {
+      "xMin": 1095,
+      "xMax": 1133,
+      "yMin": 553,
+      "yMax": 653
+    },
+    "polygonOriginalPixels": [
+      {
+        "x": 1096,
+        "y": 553
+      },
+      {
+        "x": 1128,
+        "y": 553
+      },
+      {
+        "x": 1133,
+        "y": 558
+      },
+      {
+        "x": 1133,
+        "y": 648
+      },
+      {
+        "x": 1128,
+        "y": 653
+      },
+      {
+        "x": 1096,
+        "y": 653
+      }
+    ],
+    "modelReplaceable": true,
+    "notes": null,
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (99% > 35%)"
+  },
+  {
+    "id": "obj_5",
+    "category": "pia",
+    "subcategory": null,
+    "roomType": "área de jantar/cozinha",
+    "confidence": 0.92,
+    "orientationDegrees": 0,
+    "boxOriginalPixels": {
+      "xMin": 141,
+      "xMax": 163,
+      "yMin": 642,
+      "yMax": 661
+    },
+    "polygonOriginalPixels": [
+      {
+        "x": 141,
+        "y": 642
+      },
+      {
+        "x": 163,
+        "y": 642
+      },
+      {
+        "x": 163,
+        "y": 661
+      },
+      {
+        "x": 141,
+        "y": 661
+      }
+    ],
+    "modelReplaceable": false,
+    "notes": "Inset sink in the vertical countertop.",
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (94% > 35%)"
+  },
+  {
+    "id": "obj_2",
+    "category": "chuveiro",
+    "subcategory": null,
+    "roomType": "banheiro",
+    "confidence": 0.9,
+    "orientationDegrees": 0,
+    "boxOriginalPixels": {
+      "xMin": 135,
+      "xMax": 176,
+      "yMin": 538,
+      "yMax": 583
+    },
+    "polygonOriginalPixels": [
+      {
+        "x": 135,
+        "y": 538
+      },
+      {
+        "x": 175,
+        "y": 538
+      },
+      {
+        "x": 175,
+        "y": 582
+      },
+      {
+        "x": 135,
+        "y": 582
+      }
+    ],
+    "modelReplaceable": false,
+    "notes": "Square shower enclosure.",
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+  },
+  {
+    "id": "obj_21",
+    "category": "vaso_sanitario",
+    "subcategory": null,
+    "roomType": "área 3,71 m²",
+    "confidence": 0.9,
+    "orientationDegrees": 0,
+    "boxOriginalPixels": {
+      "xMin": 740,
+      "xMax": 764,
+      "yMin": 654,
+      "yMax": 686
+    },
+    "polygonOriginalPixels": [
+      {
+        "x": 740,
+        "y": 654
+      },
+      {
+        "x": 764,
+        "y": 654
+      },
+      {
+        "x": 764,
+        "y": 686
+      },
+      {
+        "x": 740,
+        "y": 686
+      }
+    ],
+    "modelReplaceable": false,
+    "notes": null,
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+  },
+  {
+    "id": "obj_17",
+    "category": "bancada",
+    "subcategory": null,
+    "roomType": "área 13,00 m²",
+    "confidence": 0.88,
+    "orientationDegrees": 0,
+    "boxOriginalPixels": {
+      "xMin": 390,
+      "xMax": 460,
+      "yMin": 545,
+      "yMax": 576
+    },
+    "polygonOriginalPixels": [
+      {
+        "x": 390,
+        "y": 545
+      },
+      {
+        "x": 460,
+        "y": 545
+      },
+      {
+        "x": 460,
+        "y": 576
+      },
+      {
+        "x": 390,
+        "y": 576
+      }
+    ],
+    "modelReplaceable": false,
+    "notes": "Wall-mounted countertop with inset sink.",
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (98% > 35%)"
+  },
+  {
+    "id": "obj_20",
+    "category": "armario",
+    "subcategory": "wardrobe",
+    "roomType": "área 3,71 m²",
+    "confidence": 0.88,
+    "orientationDegrees": 90,
+    "boxOriginalPixels": {
+      "xMin": 701,
+      "xMax": 728,
+      "yMin": 545,
+      "yMax": 699
+    },
+    "polygonOriginalPixels": [
+      {
+        "x": 701,
+        "y": 545
+      },
+      {
+        "x": 728,
+        "y": 545
+      },
+      {
+        "x": 728,
+        "y": 699
+      },
+      {
+        "x": 701,
+        "y": 699
+      }
+    ],
+    "modelReplaceable": true,
+    "notes": "Tall hatched wardrobe/cabinet beside bathroom.",
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+  },
+  {
+    "id": "obj_3",
+    "category": "armario",
+    "subcategory": "wardrobe",
+    "roomType": "comodo",
+    "confidence": 0.88,
+    "orientationDegrees": 0,
+    "boxOriginalPixels": {
+      "xMin": 811,
+      "xMax": 837,
+      "yMin": 546,
+      "yMax": 695
+    },
+    "polygonOriginalPixels": [
+      {
+        "x": 811,
+        "y": 546
+      },
+      {
+        "x": 837,
+        "y": 546
+      },
+      {
+        "x": 837,
+        "y": 695
+      },
+      {
+        "x": 811,
+        "y": 695
+      }
+    ],
+    "modelReplaceable": true,
+    "notes": "Tall wardrobe/cabinet drawn with repeated internal lines.",
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+  },
+  {
+    "id": "obj_9",
+    "category": "cadeira",
+    "subcategory": "dining_chair",
+    "roomType": "área de jantar/cozinha",
+    "confidence": 0.87,
+    "orientationDegrees": 90,
+    "boxOriginalPixels": {
+      "xMin": 213,
+      "xMax": 227,
+      "yMin": 593,
+      "yMax": 618
+    },
+    "polygonOriginalPixels": [
+      {
+        "x": 214,
+        "y": 594
+      },
+      {
+        "x": 227,
+        "y": 594
+      },
+      {
+        "x": 227,
+        "y": 617
+      },
+      {
+        "x": 214,
+        "y": 617
+      }
+    ],
+    "modelReplaceable": true,
+    "notes": "Dining chair at left side of table.",
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+  },
+  {
+    "id": "obj_10",
+    "category": "cadeira",
+    "subcategory": "dining_chair",
+    "roomType": "área de jantar/cozinha",
+    "confidence": 0.87,
+    "orientationDegrees": 90,
+    "boxOriginalPixels": {
+      "xMin": 213,
+      "xMax": 227,
+      "yMin": 622,
+      "yMax": 650
+    },
+    "polygonOriginalPixels": [
+      {
+        "x": 214,
+        "y": 623
+      },
+      {
+        "x": 227,
+        "y": 623
+      },
+      {
+        "x": 227,
+        "y": 649
+      },
+      {
+        "x": 214,
+        "y": 649
+      }
+    ],
+    "modelReplaceable": true,
+    "notes": "Dining chair at left side of table.",
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+  },
+  {
+    "id": "obj_11",
+    "category": "cadeira",
+    "subcategory": "dining_chair",
+    "roomType": "área de jantar/cozinha",
+    "confidence": 0.87,
+    "orientationDegrees": 90,
+    "boxOriginalPixels": {
+      "xMin": 213,
+      "xMax": 227,
+      "yMin": 657,
+      "yMax": 683
+    },
+    "polygonOriginalPixels": [
+      {
+        "x": 214,
+        "y": 658
+      },
+      {
+        "x": 227,
+        "y": 658
+      },
+      {
+        "x": 227,
+        "y": 682
+      },
+      {
+        "x": 214,
+        "y": 682
+      }
+    ],
+    "modelReplaceable": true,
+    "notes": "Dining chair at left side of table.",
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+  },
+  {
+    "id": "obj_12",
+    "category": "cadeira",
+    "subcategory": "dining_chair",
+    "roomType": "área de jantar/cozinha",
+    "confidence": 0.87,
+    "orientationDegrees": 90,
+    "boxOriginalPixels": {
+      "xMin": 272,
+      "xMax": 286,
+      "yMin": 593,
+      "yMax": 618
+    },
+    "polygonOriginalPixels": [
+      {
+        "x": 272,
+        "y": 594
+      },
+      {
+        "x": 285,
+        "y": 594
+      },
+      {
+        "x": 285,
+        "y": 617
+      },
+      {
+        "x": 272,
+        "y": 617
+      }
+    ],
+    "modelReplaceable": true,
+    "notes": "Dining chair at right side of table.",
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+  },
+  {
+    "id": "obj_13",
+    "category": "cadeira",
+    "subcategory": "dining_chair",
+    "roomType": "área de jantar/cozinha",
+    "confidence": 0.87,
+    "orientationDegrees": 90,
+    "boxOriginalPixels": {
+      "xMin": 272,
+      "xMax": 286,
+      "yMin": 622,
+      "yMax": 650
+    },
+    "polygonOriginalPixels": [
+      {
+        "x": 272,
+        "y": 623
+      },
+      {
+        "x": 285,
+        "y": 623
+      },
+      {
+        "x": 285,
+        "y": 649
+      },
+      {
+        "x": 272,
+        "y": 649
+      }
+    ],
+    "modelReplaceable": true,
+    "notes": "Dining chair at right side of table.",
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+  },
+  {
+    "id": "obj_14",
+    "category": "cadeira",
+    "subcategory": "dining_chair",
+    "roomType": "área de jantar/cozinha",
+    "confidence": 0.87,
+    "orientationDegrees": 90,
+    "boxOriginalPixels": {
+      "xMin": 272,
+      "xMax": 286,
+      "yMin": 657,
+      "yMax": 683
+    },
+    "polygonOriginalPixels": [
+      {
+        "x": 272,
+        "y": 658
+      },
+      {
+        "x": 285,
+        "y": 658
+      },
+      {
+        "x": 285,
+        "y": 682
+      },
+      {
+        "x": 272,
+        "y": 682
+      }
+    ],
+    "modelReplaceable": true,
+    "notes": "Dining chair at right side of table.",
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (94% > 35%)"
+  },
+  {
+    "id": "obj_1",
+    "category": "pia",
+    "subcategory": null,
+    "roomType": "banheiro",
+    "confidence": 0.85,
+    "orientationDegrees": 0,
+    "boxOriginalPixels": {
+      "xMin": 67,
+      "xMax": 91,
+      "yMin": 548,
+      "yMax": 570
+    },
+    "polygonOriginalPixels": [
+      {
+        "x": 67,
+        "y": 548
+      },
+      {
+        "x": 91,
+        "y": 548
+      },
+      {
+        "x": 91,
+        "y": 570
+      },
+      {
+        "x": 67,
+        "y": 570
+      }
+    ],
+    "modelReplaceable": false,
+    "notes": "Small washbasin fixture.",
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+  },
+  {
+    "id": "obj_4",
+    "category": "bancada",
+    "subcategory": null,
+    "roomType": "área de jantar/cozinha",
+    "confidence": 0.83,
+    "orientationDegrees": 0,
+    "boxOriginalPixels": {
+      "xMin": 135,
+      "xMax": 169,
+      "yMin": 635,
+      "yMax": 719
+    },
+    "polygonOriginalPixels": [
+      {
+        "x": 135,
+        "y": 635
+      },
+      {
+        "x": 169,
+        "y": 635
+      },
+      {
+        "x": 169,
+        "y": 719
+      },
+      {
+        "x": 135,
+        "y": 719
+      }
+    ],
+    "modelReplaceable": false,
+    "notes": "Narrow countertop with inset sink.",
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (95% > 35%)"
+  },
+  {
+    "id": "obj_7",
+    "category": "cadeira",
+    "subcategory": "dining_chair",
+    "roomType": "área de jantar/cozinha",
+    "confidence": 0.83,
+    "orientationDegrees": 0,
+    "boxOriginalPixels": {
+      "xMin": 226,
+      "xMax": 244,
+      "yMin": 573,
+      "yMax": 587
+    },
+    "polygonOriginalPixels": [
+      {
+        "x": 227,
+        "y": 574
+      },
+      {
+        "x": 243,
+        "y": 574
+      },
+      {
+        "x": 243,
+        "y": 587
+      },
+      {
+        "x": 227,
+        "y": 587
+      }
+    ],
+    "modelReplaceable": true,
+    "notes": "Dining chair at the upper side of table.",
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (76% > 35%)"
+  },
+  {
+    "id": "obj_8",
+    "category": "cadeira",
+    "subcategory": "dining_chair",
+    "roomType": "área de jantar/cozinha",
+    "confidence": 0.83,
+    "orientationDegrees": 0,
+    "boxOriginalPixels": {
+      "xMin": 250,
+      "xMax": 269,
+      "yMin": 573,
+      "yMax": 587
+    },
+    "polygonOriginalPixels": [
+      {
+        "x": 251,
+        "y": 574
+      },
+      {
+        "x": 268,
+        "y": 574
+      },
+      {
+        "x": 268,
+        "y": 587
+      },
+      {
+        "x": 251,
+        "y": 587
+      }
+    ],
+    "modelReplaceable": true,
+    "notes": "Dining chair at the upper side of table.",
+    "replaceable": true,
+    "uncertain": false,
+    "reason": "aceito"
+  },
+  {
+    "id": "obj_15",
+    "category": "cadeira",
+    "subcategory": "dining_chair",
+    "roomType": "área de jantar/cozinha",
+    "confidence": 0.83,
+    "orientationDegrees": 0,
+    "boxOriginalPixels": {
+      "xMin": 226,
+      "xMax": 244,
+      "yMin": 694,
+      "yMax": 707
+    },
+    "polygonOriginalPixels": [
+      {
+        "x": 227,
+        "y": 694
+      },
+      {
+        "x": 243,
+        "y": 694
+      },
+      {
+        "x": 243,
+        "y": 707
+      },
+      {
+        "x": 227,
+        "y": 707
+      }
+    ],
+    "modelReplaceable": true,
+    "notes": "Dining chair at lower side of table.",
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (45% > 35%)"
+  },
+  {
+    "id": "obj_16",
+    "category": "cadeira",
+    "subcategory": "dining_chair",
+    "roomType": "área de jantar/cozinha",
+    "confidence": 0.83,
+    "orientationDegrees": 0,
+    "boxOriginalPixels": {
+      "xMin": 250,
+      "xMax": 269,
+      "yMin": 694,
+      "yMax": 707
+    },
+    "polygonOriginalPixels": [
+      {
+        "x": 251,
+        "y": 694
+      },
+      {
+        "x": 268,
+        "y": 694
+      },
+      {
+        "x": 268,
+        "y": 707
+      },
+      {
+        "x": 251,
+        "y": 707
+      }
+    ],
+    "modelReplaceable": true,
+    "notes": "Dining chair at lower side of table.",
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (37% > 35%)"
+  },
+  {
+    "id": "obj_5",
+    "category": "mobiliario_outro",
+    "subcategory": "tv_console_or_cabinet",
+    "roomType": "comodo",
+    "confidence": 0.58,
+    "orientationDegrees": 0,
+    "boxOriginalPixels": {
+      "xMin": 996,
+      "xMax": 1012,
+      "yMin": 571,
+      "yMax": 644
+    },
+    "polygonOriginalPixels": [
+      {
+        "x": 996,
+        "y": 571
+      },
+      {
+        "x": 1012,
+        "y": 571
+      },
+      {
+        "x": 1012,
+        "y": 644
+      },
+      {
+        "x": 996,
+        "y": 644
+      }
+    ],
+    "modelReplaceable": true,
+    "notes": "Narrow outlined furnishing; exact function is unclear.",
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+  },
+  {
+    "id": "obj_6",
+    "category": "cadeira",
+    "subcategory": null,
+    "roomType": "comodo",
+    "confidence": 0.93,
+    "orientationDegrees": 0,
+    "boxOriginalPixels": {
+      "xMin": 217.08984375,
+      "xMax": 233.0859375,
+      "yMin": 570.7685950413223,
+      "yMax": 591.3471074380166
+    },
+    "polygonOriginalPixels": null,
+    "modelReplaceable": true,
+    "notes": null,
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (68% > 35%)"
+  },
+  {
+    "id": "obj_7",
+    "category": "cadeira",
+    "subcategory": null,
+    "roomType": "comodo",
+    "confidence": 0.93,
+    "orientationDegrees": 0,
+    "boxOriginalPixels": {
+      "xMin": 239.94140625,
+      "xMax": 255.93750000000003,
+      "yMin": 570.7685950413223,
+      "yMax": 591.3471074380166
+    },
+    "polygonOriginalPixels": null,
+    "modelReplaceable": true,
+    "notes": null,
+    "replaceable": true,
+    "uncertain": false,
+    "reason": "aceito"
+  },
+  {
+    "id": "obj_8",
+    "category": "cadeira",
+    "subcategory": null,
+    "roomType": "comodo",
+    "confidence": 0.93,
+    "orientationDegrees": 0,
+    "boxOriginalPixels": {
+      "xMin": 262.79296875,
+      "xMax": 278.7890625,
+      "yMin": 570.7685950413223,
+      "yMax": 591.3471074380166
+    },
+    "polygonOriginalPixels": null,
+    "modelReplaceable": true,
+    "notes": null,
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (59% > 35%)"
+  },
+  {
+    "id": "obj_9",
+    "category": "cadeira",
+    "subcategory": null,
+    "roomType": "comodo",
+    "confidence": 0.93,
+    "orientationDegrees": 90,
+    "boxOriginalPixels": {
+      "xMin": 202.236328125,
+      "xMax": 222.802734375,
+      "yMin": 594.7768595041323,
+      "yMax": 611.9256198347107
+    },
+    "polygonOriginalPixels": null,
+    "modelReplaceable": true,
+    "notes": null,
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+  },
+  {
+    "id": "obj_10",
+    "category": "cadeira",
+    "subcategory": null,
+    "roomType": "comodo",
+    "confidence": 0.93,
+    "orientationDegrees": 90,
+    "boxOriginalPixels": {
+      "xMin": 202.236328125,
+      "xMax": 222.802734375,
+      "yMin": 623.358126721763,
+      "yMax": 640.5068870523417
+    },
+    "polygonOriginalPixels": null,
+    "modelReplaceable": true,
+    "notes": null,
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+  },
+  {
+    "id": "obj_11",
+    "category": "cadeira",
+    "subcategory": null,
+    "roomType": "comodo",
+    "confidence": 0.93,
+    "orientationDegrees": 90,
+    "boxOriginalPixels": {
+      "xMin": 202.236328125,
+      "xMax": 222.802734375,
+      "yMin": 651.939393939394,
+      "yMax": 669.0881542699724
+    },
+    "polygonOriginalPixels": null,
+    "modelReplaceable": true,
+    "notes": null,
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+  },
+  {
+    "id": "obj_14",
+    "category": "cadeira",
+    "subcategory": null,
+    "roomType": "comodo",
+    "confidence": 0.93,
+    "orientationDegrees": 90,
+    "boxOriginalPixels": {
+      "xMin": 271.93359375,
+      "xMax": 292.5,
+      "yMin": 651.939393939394,
+      "yMax": 669.0881542699724
+    },
+    "polygonOriginalPixels": null,
+    "modelReplaceable": true,
+    "notes": null,
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (79% > 35%)"
+  },
+  {
+    "id": "obj_21",
+    "category": "pia",
+    "subcategory": "bathroom sink",
+    "roomType": "comodo",
+    "confidence": 0.91,
+    "orientationDegrees": 0,
+    "boxOriginalPixels": {
+      "xMin": 738.10546875,
+      "xMax": 767.8125,
+      "yMin": 649.6528925619834,
+      "yMax": 679.3774104683196
+    },
+    "polygonOriginalPixels": null,
+    "modelReplaceable": false,
+    "notes": null,
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+  },
+  {
+    "id": "obj_15",
+    "category": "cadeira",
+    "subcategory": null,
+    "roomType": "comodo",
+    "confidence": 0.9,
+    "orientationDegrees": 0,
+    "boxOriginalPixels": {
+      "xMin": 239.94140625,
+      "xMax": 255.93750000000003,
+      "yMin": 686.236914600551,
+      "yMax": 705.67217630854
+    },
+    "polygonOriginalPixels": null,
+    "modelReplaceable": true,
+    "notes": null,
+    "replaceable": true,
+    "uncertain": false,
+    "reason": "aceito"
+  },
+  {
+    "id": "obj_4",
+    "category": "sofa",
+    "subcategory": null,
+    "roomType": "comodo",
+    "confidence": 0.86,
+    "orientationDegrees": 90,
+    "boxOriginalPixels": {
+      "xMin": 63.98437500000001,
+      "xMax": 126.826171875,
+      "yMin": 693.0964187327825,
+      "yMax": 757.1184573002755
+    },
+    "polygonOriginalPixels": null,
+    "modelReplaceable": true,
+    "notes": null,
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (94% > 35%)"
+  },
+  {
+    "id": "obj_16",
+    "category": "bancada",
+    "subcategory": "kitchen counter",
+    "roomType": "comodo",
+    "confidence": 0.86,
+    "orientationDegrees": 0,
+    "boxOriginalPixels": {
+      "xMin": 342.7734375,
+      "xMax": 500.44921875,
+      "yMin": 542.1873278236915,
+      "yMax": 696.5261707988981
+    },
+    "polygonOriginalPixels": null,
+    "modelReplaceable": false,
+    "notes": "L-shaped outlined kitchen counter.",
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (79% > 35%)"
+  },
+  {
+    "id": "obj_22",
+    "category": "chuveiro",
+    "subcategory": null,
+    "roomType": "comodo",
+    "confidence": 0.66,
+    "orientationDegrees": 0,
+    "boxOriginalPixels": {
+      "xMin": 739.248046875,
+      "xMax": 767.8125,
+      "yMin": 563.9090909090909,
+      "yMax": 585.6308539944903
+    },
+    "polygonOriginalPixels": null,
+    "modelReplaceable": false,
+    "notes": "Small upper bathroom fixture, likely a shower.",
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (100% > 35%)"
+  },
+  {
+    "id": "obj_25",
+    "category": "armario",
+    "subcategory": "cabinet",
+    "roomType": "comodo",
+    "confidence": 0.62,
+    "orientationDegrees": 0,
+    "boxOriginalPixels": {
+      "xMin": 1094.58984375,
+      "xMax": 1131.15234375,
+      "yMin": 552.4765840220385,
+      "yMax": 618.7851239669421
+    },
+    "polygonOriginalPixels": null,
+    "modelReplaceable": true,
+    "notes": "Narrow rectangular storage or cabinet-like object in garage area.",
+    "replaceable": false,
+    "uncertain": true,
+    "reason": "incerto: sobreposição com estrutura protegida acima do limite (99% > 35%)"
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "dominantColorBinsCount": 4,
+  "dominantColorBins": [
+    {
+      "key": "10,10,10",
+      "fraction": 0.7285338646001949
+    },
+    {
+      "key": "5,5,5",
+      "fraction": 0.20787524994689774
+    },
+    {
+      "key": "2,2,2",
+      "fraction": 0.020215485354759796
+    },
+    {
+      "key": "9,9,9",
+      "fraction": 0.01046664078693904
+    }
+  ],
+  "averageSaturation0to255": 0.9,
+  "averageSaturationPct": 0.3,
+  "laplacianVarianceTextureProxy": 2035.3,
+  "grayDominantPct": 99.5,
+  "furnitureObjectsUnchangedVsOriginal": 17,
+  "furnitureObjectsVisiblyHumanized": 25,
+  "furnitureUnchangedPct": 40.5,
+  "editableAreaHumanizedPct": 25.4
+}

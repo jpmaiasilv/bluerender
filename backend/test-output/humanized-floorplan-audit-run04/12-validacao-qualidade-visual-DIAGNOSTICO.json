@@ -1,0 +1,11 @@
+{
+  "provisionalThresholds_NAO_CALIBRADOS": true,
+  "preenchimentoQuaseMonocromatico": false,
+  "ausenciaDeMateriais": false,
+  "moveisTecnicosNaoHumanizados": false,
+  "excessoDeAreasCinzas": true,
+  "saturacaoMuitoBaixa_indicativoDeHalo": true,
+  "resultadoPareceApenasColorirEspacosVazios": false,
+  "wouldRejectIfWiredLive": true,
+  "aviso": "Diagnóstico apenas — esta checagem NÃO está conectada ao pipeline real. Limiares ainda não calibrados/ajustados, conforme instruído."
+}

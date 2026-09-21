@@ -1,0 +1,10 @@
+[
+  {
+    "stage": "recognizing_furniture",
+    "atMs": 822
+  },
+  {
+    "stage": "error",
+    "atMs": 46837
+  }
+]

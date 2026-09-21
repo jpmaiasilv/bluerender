@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.env
+backend/public/results/*
+!backend/public/results/.gitkeep
+backend/private-diagnostics/
+.DS_Store
+Thumbs.db
+
+backend/private-data/
+.claude/
+*.log

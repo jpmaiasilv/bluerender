@@ -1,0 +1,31 @@
+{
+  "imageWidth": 1755,
+  "imageHeight": 1241,
+  "possuiTextoNovo": true,
+  "quantidade": 2,
+  "confianca": 0.97,
+  "justificativa": "Há dois rótulos de área novos e deformados, um na sala de jantar e outro na garagem, que não existem no original.",
+  "acceptedBoxes": [
+    {
+      "xMin": 205,
+      "yMin": 515,
+      "xMax": 275,
+      "yMax": 560
+    },
+    {
+      "xMin": 1435,
+      "yMin": 665,
+      "xMax": 1520,
+      "yMax": 708
+    }
+  ],
+  "discardedBoxes": [],
+  "boxMetrics": {
+    "totalReceived": 2,
+    "totalAccepted": 2,
+    "totalDiscarded": 0,
+    "discardReasonsGrouped": {}
+  },
+  "requestId": "resp_0a89271c791d3369016aae15a29c4087d29673c25cc8bfbb9b",
+  "elapsedMs": 8038
+}
