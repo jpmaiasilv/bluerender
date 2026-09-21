@@ -11,8 +11,6 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
-      - key: PORT
-        value: 8787
       - key: FRONTEND_URL
         value: https://bluerender.com.br
       - key: BFL_API_KEY
