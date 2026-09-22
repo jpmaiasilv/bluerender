@@ -6,15 +6,21 @@ interface CardProps {
   image: T2IGeneratedImage;
   index: number;
   onUseAsReference: (image: T2IGeneratedImage) => void;
+  /** The single-image layout: sized from the image's own aspect ratio instead of forced into a fixed-shape tile, so a portrait or ultra-wide render is never cropped to fit a square/4:3 box. */
+  hero?: boolean;
 }
 
-function GenerationCard({ image, index, onUseAsReference }: CardProps) {
+function GenerationCard({ image, index, onUseAsReference, hero }: CardProps) {
   const { messages } = useLanguage();
   const t = messages.textToImage.results;
 
   return (
-    <div className="group relative h-full overflow-hidden rounded-2xl border border-border bg-surface shadow-card">
-      <img src={image.imageUrl} alt={`${index + 1}`} className="h-full w-full object-cover" />
+    <div className={`group relative overflow-hidden rounded-2xl border border-border bg-surface-secondary shadow-card ${hero ? '' : 'h-full'}`}>
+      <img
+        src={image.imageUrl}
+        alt={`${index + 1}`}
+        className={hero ? 'block max-h-[70vh] w-auto max-w-full mx-auto object-contain' : 'h-full w-full object-contain'}
+      />
       <div className="absolute inset-0 flex flex-col justify-end gap-1.5 bg-gradient-to-t from-ink/70 via-transparent to-transparent p-3 opacity-0 transition group-hover:opacity-100">
         <div className="flex flex-wrap gap-1.5">
           <a
@@ -85,10 +91,10 @@ export function GenerationGallery({ images, requestedCount, onUseAsReference, on
         </button>
       </div>
 
-      <div className={`${gridClass} ${images.length === 1 ? 'aspect-[4/3] max-h-[60vh]' : ''}`}>
+      <div className={images.length === 1 ? '' : gridClass}>
         {images.map((image, index) => (
-          <div key={image.requestId} className={`h-full ${images.length === 2 ? 'aspect-[4/3]' : images.length >= 4 ? 'aspect-square' : ''}`}>
-            <GenerationCard image={image} index={index} onUseAsReference={onUseAsReference} />
+          <div key={image.requestId} className={images.length === 1 ? '' : `h-full ${images.length === 2 ? 'aspect-[4/3]' : 'aspect-square'}`}>
+            <GenerationCard image={image} index={index} onUseAsReference={onUseAsReference} hero={images.length === 1} />
           </div>
         ))}
       </div>

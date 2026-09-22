@@ -9,15 +9,21 @@ interface CardProps {
   index: number;
   onGenerateVariation: (image: IdeaGeneratedImage) => void;
   onUseAsNewBase: (image: IdeaGeneratedImage) => void;
+  /** The single-image layout: sized from the image's own aspect ratio instead of forced into a fixed-shape tile, so a portrait or ultra-wide render is never cropped to fit a square/4:3 box. */
+  hero?: boolean;
 }
 
-function IdeaResultCard({ image, index, onGenerateVariation, onUseAsNewBase }: CardProps) {
+function IdeaResultCard({ image, index, onGenerateVariation, onUseAsNewBase, hero }: CardProps) {
   const { messages } = useLanguage();
   const t = messages.ideaGenerator.results;
 
   return (
-    <div className="group relative h-full overflow-hidden rounded-2xl border border-border bg-surface shadow-card">
-      <img src={image.imageUrl} alt={`${index + 1}`} className="h-full w-full object-cover" />
+    <div className={`group relative overflow-hidden rounded-2xl border border-border bg-surface-secondary shadow-card ${hero ? '' : 'h-full'}`}>
+      <img
+        src={image.imageUrl}
+        alt={`${index + 1}`}
+        className={hero ? 'block max-h-[70vh] w-auto max-w-full mx-auto object-contain' : 'h-full w-full object-contain'}
+      />
       <div className="absolute inset-0 flex flex-col justify-end gap-1.5 bg-gradient-to-t from-ink/70 via-transparent to-transparent p-3 opacity-0 transition group-hover:opacity-100">
         <div className="flex flex-wrap gap-1.5">
           <a
@@ -119,10 +125,16 @@ export function IdeaResultGallery({ images, requestedCount, originalImageUrl, on
           afterLabel={t.results.after}
         />
       ) : (
-        <div className={`${gridClass} ${images.length === 1 ? 'aspect-[4/3] max-h-[60vh]' : ''}`}>
+        <div className={images.length === 1 ? '' : gridClass}>
           {images.map((image, index) => (
-            <div key={image.requestId} className={`h-full ${images.length === 2 ? 'aspect-[4/3]' : images.length >= 4 ? 'aspect-square' : ''}`}>
-              <IdeaResultCard image={image} index={index} onGenerateVariation={onGenerateVariation} onUseAsNewBase={onUseAsNewBase} />
+            <div key={image.requestId} className={images.length === 1 ? '' : `h-full ${images.length === 2 ? 'aspect-[4/3]' : 'aspect-square'}`}>
+              <IdeaResultCard
+                image={image}
+                index={index}
+                onGenerateVariation={onGenerateVariation}
+                onUseAsNewBase={onUseAsNewBase}
+                hero={images.length === 1}
+              />
             </div>
           ))}
         </div>

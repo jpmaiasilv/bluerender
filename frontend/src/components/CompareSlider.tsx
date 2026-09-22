@@ -16,13 +16,17 @@ export function CompareSlider({ beforeSrc, afterSrc, beforeLabel, afterLabel }: 
   const resolvedAfterLabel = afterLabel ?? messages.result.aiRender;
 
   return (
-    <div className="relative w-full select-none overflow-hidden rounded-2xl border border-border shadow-card">
+    <div className="relative w-full select-none overflow-hidden rounded-2xl border border-border bg-surface-secondary shadow-card">
       <img src={afterSrc} alt={resolvedAfterLabel} className="block w-full h-auto" draggable={false} />
       <div className="absolute inset-0 overflow-hidden" style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}>
+        {/* object-contain, never object-cover: the original photo and the AI
+            render rarely share an aspect ratio, and cropping the original to
+            match the render's shape hides real content instead of just
+            letterboxing it. */}
         <img
           src={beforeSrc}
           alt={resolvedBeforeLabel}
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-contain"
           draggable={false}
         />
       </div>
