@@ -30,11 +30,10 @@ const MAX_WIDTH_PX = 1200;
  *   naturalWidth/naturalHeight (via CSS aspect-ratio), not from viewport
  *   width — so it never stretches into an oversized strip on a big monitor.
  * - Both layers are absolutely positioned inside that SAME box, with
- *   identical width/height/object-fit/object-position — neither image is
- *   ever sized, cropped or positioned independently of the other.
- * - object-contain (never object-cover): when before/after don't share an
- *   exact aspect ratio, each is letterboxed inside the shared box instead of
- *   being cropped to fill it — no content is ever thrown away to force a fit.
+ *   identical width/height/object-fit(cover)/object-position — neither image
+ *   is ever sized, cropped or positioned independently of the other, so the
+ *   divider always shows a clean side-by-side split instead of a mismatched
+ *   image floating inside the other's frame.
  * - Dragging the divider only ever changes a clip-path percentage; it never
  *   touches either image's size or position.
  */
@@ -63,9 +62,14 @@ export function CompareSlider({ beforeSrc, afterSrc, beforeLabel, afterLabel }: 
   const ready = afterLoaded && beforeLoaded;
   const hasError = afterError || beforeError;
 
-  // Shared by both layers on purpose: identical sizing/fit/position rules, so
-  // neither image can ever end up cropped, scaled or placed differently from the other.
-  const layerClass = 'absolute inset-0 h-full w-full object-contain object-center';
+  // Shared by both layers on purpose: identical sizing/fit/position rules.
+  // object-cover (not contain): a comparison slider needs both images to
+  // fill the exact same footprint edge-to-edge, or the divider stops making
+  // sense — when before/after don't share the after-image's ratio, contain
+  // would letterbox the mismatched one into a centered island, so dragging
+  // the divider spliced a floating fragment of it into the middle of the
+  // other, full-bleed image instead of a clean side-by-side split.
+  const layerClass = 'absolute inset-0 h-full w-full object-cover object-center';
 
   return (
     <div
