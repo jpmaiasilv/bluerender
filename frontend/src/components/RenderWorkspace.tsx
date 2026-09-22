@@ -62,8 +62,13 @@ export function RenderWorkspace({
   }
 
   if (phase === 'complete' && result && previewUrl) {
+    // No flex-1/overflow-y-auto here on purpose: RenderPage's own column (the
+    // parent) already scrolls the whole thing (this + RecentTests below). A
+    // second flex-1+overflow-y-auto nested inside it made this box's
+    // automatic min-height resolve to 0, so it got crushed by its
+    // RecentTests sibling instead of showing its full content.
     return (
-      <div className="flex flex-1 flex-col gap-4 overflow-y-auto p-6">
+      <div className="flex flex-col gap-4 p-6">
         <h2 className="text-xs font-medium uppercase tracking-wide text-ink-secondary">{messages.result.compare}</h2>
         <CompareSlider beforeSrc={previewUrl} afterSrc={result.imageUrl} />
         <ResultActions imageUrl={result.imageUrl} onGenerateAgain={onGenerateAgain} onNewImage={onNewImage} />
