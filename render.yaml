@@ -29,3 +29,5 @@ services:
         sync: false
       - key: STRIPE_WEBHOOK_SECRET
         sync: false
+      - key: TOPAZ_API_KEY
+        sync: false
