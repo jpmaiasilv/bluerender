@@ -35,6 +35,11 @@ import {
   T2IEngineInfo,
   T2IJobStatusResponse,
   TextToImageSettings,
+  UpscaleConfig,
+  UpscaleCreateJobResponse,
+  UpscaleHistoryItem,
+  UpscaleJobStatusResponse,
+  UpscaleScale,
   VideoCreateJobResponse,
   VideoGeneratorSettings,
   VideoJobStatusResponse,
@@ -901,4 +906,70 @@ export async function sendArchitectChatMessage(
       }
     }
   }
+}
+
+// --- Upscale IA (Topaz "High Fidelity V2") ---
+
+export async function fetchUpscaleConfig(): Promise<UpscaleConfig> {
+  const res = await fetch('/api/upscale/config');
+  if (!res.ok) {
+    throw new ApiError('PROVIDER_UNAVAILABLE', 'Could not load the upscale configuration.');
+  }
+  return (await res.json()) as UpscaleConfig;
+}
+
+export async function submitUpscaleJob(image: File, scale: UpscaleScale, idempotencyKey: string): Promise<UpscaleCreateJobResponse> {
+  const form = new FormData();
+  form.append('image', image);
+  form.append('scale', String(scale));
+  form.append('idempotencyKey', idempotencyKey);
+
+  const res = await fetch('/api/upscale/generate', { method: 'POST', body: form, headers: await authHeaders() });
+  const data = await res.json();
+
+  if (!res.ok) {
+    throw new ApiError(data.error?.code ?? 'UNKNOWN_ERROR', data.error?.message ?? 'Failed to start the upscale.', data.error?.details);
+  }
+  return data as UpscaleCreateJobResponse;
+}
+
+export async function pollUpscaleJobUntilDone(
+  jobId: string,
+  onUpdate: (status: UpscaleJobStatusResponse) => void,
+  signal: AbortSignal
+): Promise<UpscaleJobStatusResponse> {
+  const start = Date.now();
+  // Upscaling a large image can genuinely take minutes — a longer client budget than a render.
+  const timeoutMs = 11 * 60 * 1000;
+
+  // eslint-disable-next-line no-constant-condition
+  while (true) {
+    if (signal.aborted) {
+      throw new ApiError('GENERATION_TIMEOUT', 'The upscale was cancelled.');
+    }
+    if (Date.now() - start > timeoutMs) {
+      throw new ApiError('GENERATION_TIMEOUT', 'The upscale is taking longer than expected.');
+    }
+
+    const res = await fetch(`/api/upscale/generate/${jobId}`, { signal, headers: await authHeaders() });
+    if (!res.ok) {
+      throw new ApiError('UNKNOWN_ERROR', 'Lost track of the upscale job.');
+    }
+    const data = (await res.json()) as UpscaleJobStatusResponse;
+    onUpdate(data);
+
+    if (data.stage === 'complete') return data;
+    if (data.stage === 'failed' || data.stage === 'cancelled' || data.stage === 'timed_out') {
+      throw new ApiError(data.error?.code ?? 'UNKNOWN_ERROR', data.error?.message ?? 'The upscale failed.', data.error?.details);
+    }
+
+    await new Promise((resolve) => setTimeout(resolve, JOB_POLL_INTERVAL_MS));
+  }
+}
+
+export async function fetchUpscaleHistory(): Promise<UpscaleHistoryItem[]> {
+  const res = await fetch('/api/upscale/history', { headers: await authHeaders() });
+  if (!res.ok) throw new ApiError('UNKNOWN_ERROR', 'Could not load the upscale history.');
+  const data = (await res.json()) as { items: UpscaleHistoryItem[] };
+  return data.items;
 }

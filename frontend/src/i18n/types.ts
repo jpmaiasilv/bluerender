@@ -1628,4 +1628,42 @@ export interface Messages {
     fileTooLarge: string;
     failureNoCharge: string;
   };
+  upscale: {
+    title: string;
+    description: string;
+    auxiliaryText: string;
+    uploadLabel: string;
+    uploadDragDrop: string;
+    scaleLabel: string;
+    scale2x: string;
+    scale4x: string;
+    originalResolution: string;
+    finalResolution: string;
+    estimatedCost: string;
+    /** "Melhorar para 4K" — only shown when the computed output is actually ~4K; otherwise primaryButtonGeneric. */
+    primaryButton4k: string;
+    /** "Melhorar resolução" — used whenever the output isn't 4K, so the button never promises a resolution it won't deliver. */
+    primaryButtonGeneric: string;
+    newImage: string;
+    download: string;
+    unsupportedFormat: string;
+    tooLargeOutput: (maxMegapixels: number) => string;
+    history: {
+      title: string;
+      empty: string;
+    };
+    states: {
+      idle: string;
+      loaded: string;
+      validating: string;
+      uploading: string;
+      queued: string;
+      processing: string;
+      saving: string;
+      complete: string;
+      failed: string;
+      cancelled: string;
+      timedOut: string;
+    };
+  };
 }

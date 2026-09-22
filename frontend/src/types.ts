@@ -857,3 +857,73 @@ export type ArchitectChatStreamEvent =
   | { type: 'delta'; text: string }
   | { type: 'done'; conversationId: string; assistantMessageId: string; title: string }
   | { type: 'error'; code: ErrorCode; message: string; conversationId?: string; assistantMessageId?: string };
+
+// --- Upscale IA (Topaz Labs "High Fidelity V2") ---
+
+export type UpscaleScale = 2 | 4;
+
+export interface UpscaleScaleOption {
+  scale: UpscaleScale;
+  credits: number;
+}
+
+export interface UpscaleConfig {
+  model: string;
+  scales: UpscaleScaleOption[];
+  maxInputMegapixels: number;
+  maxOutputMegapixels: number;
+  acceptedTypes: string[];
+}
+
+export type UpscaleStage =
+  | 'validating'
+  | 'uploading'
+  | 'queued'
+  | 'processing'
+  | 'downloading'
+  | 'saving'
+  | 'complete'
+  | 'failed'
+  | 'cancelled'
+  | 'timed_out';
+
+export interface UpscaleResultPayload {
+  jobId: string;
+  originalUrl: string;
+  resultUrl: string;
+  originalWidth: number;
+  originalHeight: number;
+  outputWidth: number;
+  outputHeight: number;
+  scale: UpscaleScale;
+  model: string;
+  creditsCharged: number;
+}
+
+export interface UpscaleJobStatusResponse {
+  jobId: string;
+  stage: UpscaleStage;
+  startedAt: number;
+  result?: UpscaleResultPayload;
+  error?: JobErrorPayload;
+}
+
+export interface UpscaleCreateJobResponse {
+  jobId: string;
+  startedAt: number;
+}
+
+export interface UpscaleHistoryItem {
+  id: string;
+  status: UpscaleStage | 'queued' | 'processing' | 'completed';
+  scale: UpscaleScale;
+  model: string;
+  originalWidth: number;
+  originalHeight: number;
+  outputWidth: number;
+  outputHeight: number;
+  creditsCharged: number;
+  createdAt: string;
+  originalUrl: string | null;
+  resultUrl: string | null;
+}

@@ -31,11 +31,14 @@ import { videoEditorRouter } from './routes/videoEditor';
 import { architectChatRouter } from './routes/architectChat';
 import { billingRouter } from './routes/billing';
 import { billingWebhookRouter } from './routes/billingWebhook';
+import { upscaleRouter } from './routes/upscale';
 import { assertInfrastructureConfig, isProduction } from './config/runtimeEnvironment';
 import { getWalletBackend } from './services/creditWallet';
 import { startWalletReconciler } from './services/walletReconciler';
 import { getGenerationStore } from './services/humanizedFloorplanStore';
 import { getFileStorage } from './storage/humanizedFloorplanFiles';
+import { getUpscaleStore } from './services/upscaleStore';
+import { getUpscaleFileStorage } from './storage/upscaleFiles';
 import { reconcileStaleGenerations } from './services/humanizedFloorplanReconciler';
 
 serverLogger.log(`Loading environment from ${ENV_PATH}`);
@@ -63,6 +66,7 @@ app.get('/api/health', (_req: Request, res: Response) => {
     xaiConfigured: Boolean(process.env.XAI_API_KEY),
     stripeConfigured: Boolean(process.env.STRIPE_SECRET_KEY),
     supabaseAdminConfigured: Boolean(process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY),
+    topazConfigured: Boolean(process.env.TOPAZ_API_KEY),
   });
 });
 
@@ -78,6 +82,7 @@ app.use('/api', videoGeneratorRouter);
 app.use('/api', videoEditorRouter);
 app.use('/api', architectChatRouter);
 app.use('/api', billingRouter);
+app.use('/api', upscaleRouter);
 
 // Converts multer failures (bad file type/size) into the same JSON error shape as the rest of the API.
 app.use((err: unknown, _req: Request, res: Response, _next: NextFunction) => {
@@ -102,6 +107,8 @@ async function verifyInfrastructure(): Promise<void> {
   await getWalletBackend();
   await getGenerationStore();
   await getFileStorage();
+  await getUpscaleStore();
+  await getUpscaleFileStorage();
 }
 
 async function start(): Promise<void> {

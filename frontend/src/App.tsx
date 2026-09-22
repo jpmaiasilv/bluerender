@@ -9,6 +9,7 @@ import { RenderPage } from './pages/RenderPage';
 import { PlantaHumanizadaPage } from './pages/PlantaHumanizadaPage';
 import { PlantaEditorPage } from './pages/PlantaEditorPage';
 import { TextToImagePage } from './pages/TextToImagePage';
+import { UpscalePage } from './pages/UpscalePage';
 import { IdeaGeneratorPage } from './pages/IdeaGeneratorPage';
 import { VideoGeneratorPage } from './pages/VideoGeneratorPage';
 import { VideoEditorPage } from './pages/VideoEditorPage';
@@ -75,7 +76,7 @@ export default function App() {
               <Route path="/gerador-de-ideias" element={<IdeaGeneratorPage />} />
               <Route path="/video-ia" element={<VideoGeneratorPage />} />
               <Route path="/video-editor" element={<VideoEditorPage />} />
-              <Route path="/melhorar-render" element={<ComingSoonToolPage toolId="melhorarRender" />} />
+              <Route path="/melhorar-render" element={<UpscalePage />} />
               <Route path="/multiangulo" element={<ComingSoonToolPage toolId="multiangulo" />} />
               <Route path="/upscale" element={<ComingSoonToolPage toolId="upscale" />} />
               <Route path="/editor-ia" element={<ComingSoonToolPage toolId="editorIa" />} />

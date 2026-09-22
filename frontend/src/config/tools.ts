@@ -41,7 +41,7 @@ export const TOOLS: ToolDefinition[] = [
   { id: 'ideaGenerator', path: '/gerador-de-ideias', icon: Lightbulb, group: 'create', status: 'available' },
   { id: 'videoIa', path: '/video-ia', icon: Video, group: 'create', status: 'available' },
   { id: 'videoEditor', path: '/video-editor', icon: Clapperboard, group: 'edit', status: 'available' },
-  { id: 'melhorarRender', path: '/melhorar-render', icon: Wand2, group: 'edit', status: 'comingSoon' },
+  { id: 'melhorarRender', path: '/melhorar-render', icon: Wand2, group: 'edit', status: 'available' },
   { id: 'multiangulo', path: '/multiangulo', icon: RotateCw, group: 'edit', status: 'comingSoon' },
   { id: 'upscale', path: '/upscale', icon: Maximize2, group: 'edit', status: 'comingSoon' },
   { id: 'editorIa', path: '/editor-ia', icon: PenSquare, group: 'edit', status: 'comingSoon' },

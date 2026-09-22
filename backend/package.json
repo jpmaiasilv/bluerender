@@ -21,6 +21,7 @@
     "test:humanized-floorplan-astra": "tsx scripts/test-humanized-floorplan-astra.ts",
     "test:architect-chat": "tsx scripts/test-architect-chat.ts",
     "test:render-engines": "tsx scripts/test-render-engines.ts",
+    "test:upscale": "tsx scripts/test-upscale.ts",
     "test:floorplan-canvas": "tsx scripts/test-floorplan-canvas.ts",
     "test:wallet-service": "tsx scripts/test-wallet-service.ts",
     "test:wallet-sql": "tsx scripts/test-wallet-sql.ts",
