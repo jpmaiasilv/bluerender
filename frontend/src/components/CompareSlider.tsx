@@ -11,8 +11,14 @@ interface Props {
 
 /** Matches the platform's typical render output (1536 x 1024) — only used as a placeholder shape before the real image reports its own natural size. */
 const DEFAULT_RATIO = 1536 / 1024;
-/** Coherent max width for a 3:2-ish comparison card — keeps it from turning into a wall-wide strip on large monitors, per the same logic as every other result card in the app. */
-const MAX_WIDTH_PX = 880;
+/**
+ * Upper bound so the card doesn't stretch edge-to-edge on an ultra-wide
+ * monitor. The old bug was the crop looking wrong at large sizes (fixed by
+ * aspect-ratio + object-contain above), not the size itself — so this can
+ * stay generous: the workspace column is the real limit day to day, this
+ * cap only kicks in on genuinely wide screens.
+ */
+const MAX_WIDTH_PX = 1200;
 
 /**
  * Before/after slider used everywhere the app compares an original photo
