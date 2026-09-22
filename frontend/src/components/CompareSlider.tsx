@@ -69,7 +69,12 @@ export function CompareSlider({ beforeSrc, afterSrc, beforeLabel, afterLabel }: 
 
   return (
     <div
-      className="relative mx-auto w-full select-none overflow-hidden rounded-2xl border border-border bg-surface-secondary shadow-card"
+      // shrink-0: every caller renders this inside a flex-col results panel
+      // (flex-1, overflow-y-auto). Without it, flexbox's default min-height:auto
+      // + overflow:auto combo lets the row compress this box far below its
+      // aspect-ratio height when the panel is short on vertical space — width
+      // stays full, height gets crushed, and the image shrinks tiny inside it.
+      className="relative mx-auto w-full shrink-0 select-none overflow-hidden rounded-2xl border border-border bg-surface-secondary shadow-card"
       style={{ aspectRatio: String(ratio), maxWidth: MAX_WIDTH_PX }}
     >
       {!ready && !hasError && <div className="absolute inset-0 animate-pulse bg-surface-secondary" aria-hidden="true" />}
