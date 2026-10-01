@@ -19,7 +19,13 @@ const MAX_FILE_SIZE = 15 * 1024 * 1024;
 const JOB_TTL_MS = 30 * 60 * 1000;
 
 const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: MAX_FILE_SIZE } });
-const uploadFields = upload.fields([{ name: 'sourceImage', maxCount: 1 }]);
+const uploadFields = upload.fields([
+  { name: 'sourceImage', maxCount: 1 },
+  // Optional — pins the video's final frame (grok-imagine-video-1.5 only).
+  // Real API capability, not prompt-engineering: confirmed via xAI's docs
+  // (see providers/xaiVideo.ts's XaiVideoGenerateParams.lastFrameBase64).
+  { name: 'endImage', maxCount: 1 },
+]);
 
 interface Job {
   id: string;
@@ -106,6 +112,7 @@ videoGeneratorRouter.post('/video-generator/generate', requireAuth, uploadFields
   try {
     const files = req.files as Record<string, Express.Multer.File[]> | undefined;
     const sourceFile = files?.sourceImage?.[0];
+    const endFile = files?.endImage?.[0];
 
     let sourceMimeType: string | null = null;
     if (sourceFile) {
@@ -115,6 +122,22 @@ videoGeneratorRouter.post('/video-generator/generate', requireAuth, uploadFields
           'IMAGE_UPLOAD_FAILED',
           'Unsupported source image format. Please upload a JPG, PNG or WEBP file.',
           `Declared mimetype: ${sourceFile.mimetype}`,
+          400
+        );
+      }
+    }
+
+    let endMimeType: string | null = null;
+    if (endFile) {
+      if (!sourceFile) {
+        throw new AppError('VALIDATION_ERROR', 'A final-frame image requires a starting image too.', undefined, 400);
+      }
+      endMimeType = detectImageMimeType(endFile.buffer);
+      if (!endMimeType) {
+        throw new AppError(
+          'IMAGE_UPLOAD_FAILED',
+          'Unsupported final-frame image format. Please upload a JPG, PNG or WEBP file.',
+          `Declared mimetype: ${endFile.mimetype}`,
           400
         );
       }
@@ -135,6 +158,8 @@ videoGeneratorRouter.post('/video-generator/generate', requireAuth, uploadFields
     void runJob(job, reservation, settings, totalCost, {
       sourceBuffer: sourceFile?.buffer,
       sourceMimeType: sourceMimeType ?? undefined,
+      endBuffer: endFile?.buffer,
+      endMimeType: endMimeType ?? undefined,
       model: override.model,
       resolution: override.resolution,
     });
@@ -172,6 +197,9 @@ function handleSyncError(res: Response, err: unknown): void {
 interface JobInput {
   sourceBuffer?: Buffer;
   sourceMimeType?: string;
+  /** Optional final-frame image — real xAI "First & Last Frame" interpolation (grok-imagine-video-1.5), not simulated. */
+  endBuffer?: Buffer;
+  endMimeType?: string;
   model?: XaiVideoModel;
   resolution?: XaiVideoResolution;
 }
@@ -181,16 +209,19 @@ async function runJob(
   reservation: ActiveReservation, settings: VideoGeneratorSettings, totalCost: number, input: JobInput): Promise<void> {
   const startedAt = job.startedAt;
   const hasSourceImage = Boolean(input.sourceBuffer);
+  const hasEndImage = Boolean(input.endBuffer);
 
   try {
     job.stage = 'uploading';
-    const prompt = buildVideoPrompt(settings, { hasSourceImage });
+    const prompt = buildVideoPrompt(settings, { hasSourceImage, hasEndImage });
 
     job.stage = 'sending';
     const result = await generateVideo({
       prompt,
       imageBase64: input.sourceBuffer?.toString('base64'),
       imageMimeType: input.sourceMimeType,
+      lastFrameBase64: input.endBuffer?.toString('base64'),
+      lastFrameMimeType: input.endMimeType,
       durationSeconds: settings.durationSeconds,
       model: input.model,
       resolution: input.resolution,

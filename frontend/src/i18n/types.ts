@@ -910,6 +910,11 @@ export interface Messages {
       change: string;
       remove: string;
     };
+    endImage: {
+      label: string;
+      hint: string;
+      dragDrop: string;
+    };
     durationLabel: string;
     durationOptionLabel: (seconds: number) => string;
     generateButton: (credits: number) => string;

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { ToolLayout } from '../components/ToolLayout';
 import { VideoComposer } from '../components/video-generator/VideoComposer';
 import { SourceImageUpload } from '../components/video-generator/SourceImageUpload';
+import { UploadDropzone } from '../components/UploadDropzone';
 import { VideoDurationSelector } from '../components/video-generator/VideoDurationSelector';
 import { VideoCreditGenerationButton } from '../components/video-generator/VideoCreditGenerationButton';
 import { VideoLoadingStatus } from '../components/video-generator/VideoLoadingStatus';
@@ -42,6 +43,9 @@ export function VideoGeneratorPage() {
   const [sourceFile, setSourceFile] = useState<File | null>(null);
   const [sourcePreviewUrl, setSourcePreviewUrl] = useState<string | null>(null);
 
+  const [endFile, setEndFile] = useState<File | null>(null);
+  const [endPreviewUrl, setEndPreviewUrl] = useState<string | null>(null);
+
   const [phase, setPhase] = useState<Phase>('idle');
   const [stage, setStage] = useState<JobStage>('uploading');
   const [result, setResult] = useState<VideoJobResultPayload | null>(null);
@@ -65,6 +69,12 @@ export function VideoGeneratorPage() {
   }, [sourcePreviewUrl]);
 
   useEffect(() => {
+    return () => {
+      if (endPreviewUrl) URL.revokeObjectURL(endPreviewUrl);
+    };
+  }, [endPreviewUrl]);
+
+  useEffect(() => {
     return () => abortRef.current?.abort();
   }, []);
 
@@ -78,6 +88,20 @@ export function VideoGeneratorPage() {
     if (sourcePreviewUrl) URL.revokeObjectURL(sourcePreviewUrl);
     setSourceFile(null);
     setSourcePreviewUrl(null);
+    // An end frame requires a starting image too — clearing the source clears it as well.
+    handleClearEndFile();
+  }
+
+  function handleEndFileSelected(file: File) {
+    if (endPreviewUrl) URL.revokeObjectURL(endPreviewUrl);
+    setEndFile(file);
+    setEndPreviewUrl(URL.createObjectURL(file));
+  }
+
+  function handleClearEndFile() {
+    if (endPreviewUrl) URL.revokeObjectURL(endPreviewUrl);
+    setEndFile(null);
+    setEndPreviewUrl(null);
   }
 
   function handleNew() {
@@ -104,7 +128,7 @@ export function VideoGeneratorPage() {
     setError(null);
 
     try {
-      const { jobId } = await submitVideoGeneratorJob(settings, sourceFile);
+      const { jobId } = await submitVideoGeneratorJob(settings, sourceFile, endFile);
 
       const final = await pollVideoGeneratorJobUntilDone(jobId, (status) => setStage(status.stage), controller.signal);
 
@@ -200,6 +224,19 @@ export function VideoGeneratorPage() {
             disabled={isGenerating}
             compact
           />
+
+          {sourceFile && (
+            <UploadDropzone
+              label={messages.videoGenerator.endImage.label}
+              hint={messages.videoGenerator.endImage.hint}
+              dragDropText={messages.videoGenerator.endImage.dragDrop}
+              previewUrl={endPreviewUrl}
+              onFileSelected={handleEndFileSelected}
+              onClear={handleClearEndFile}
+              disabled={isGenerating}
+              compact
+            />
+          )}
 
           <VideoDurationSelector
             value={settings.durationSeconds}

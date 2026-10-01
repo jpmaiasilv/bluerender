@@ -774,13 +774,18 @@ export async function fetchVideoPricing(): Promise<VideoPricingResponse> {
 
 export async function submitVideoGeneratorJob(
   settings: VideoGeneratorSettings,
-  sourceImage?: File | null
+  sourceImage?: File | null,
+  /** Optional final-frame image — real xAI "First & Last Frame" interpolation, requires sourceImage too. */
+  endImage?: File | null
 ): Promise<VideoCreateJobResponse> {
   const form = new FormData();
   form.append('prompt', settings.prompt);
   form.append('durationSeconds', String(settings.durationSeconds));
   if (sourceImage) {
     form.append('sourceImage', sourceImage);
+  }
+  if (endImage) {
+    form.append('endImage', endImage);
   }
 
   const res = await fetch('/api/video-generator/generate', { method: 'POST', body: form, headers: await authHeaders() });

@@ -1312,6 +1312,11 @@ export const es: Messages = {
       change: 'Cambiar imagen',
       remove: 'Eliminar',
     },
+    endImage: {
+      label: 'Imagen final (opcional)',
+      hint: 'La IA muestra una transición real entre la imagen de origen y esta — no es una simulación.',
+      dragDrop: 'Arrastra la imagen final o haz clic para subirla',
+    },
     durationLabel: 'Duración',
     durationOptionLabel: (seconds) => `${seconds} segundos`,
     generateButton: (credits) => `Generar video · ${credits} créditos`,

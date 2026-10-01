@@ -1311,6 +1311,11 @@ export const en: Messages = {
       change: 'Change image',
       remove: 'Remove',
     },
+    endImage: {
+      label: 'Final image (optional)',
+      hint: 'The AI renders a real transition from the source image to this one — not a simulation.',
+      dragDrop: 'Drag the final image or click to upload',
+    },
     durationLabel: 'Duration',
     durationOptionLabel: (seconds) => `${seconds} seconds`,
     generateButton: (credits) => `Generate video · ${credits} credits`,

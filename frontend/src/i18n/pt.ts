@@ -1313,6 +1313,11 @@ export const pt: Messages = {
       change: 'Trocar imagem',
       remove: 'Remover',
     },
+    endImage: {
+      label: 'Imagem final (opcional)',
+      hint: 'A IA mostra uma transição real entre a imagem de origem e esta — não é uma simulação.',
+      dragDrop: 'Arraste a imagem final ou clique para enviar',
+    },
     durationLabel: 'Duração',
     durationOptionLabel: (seconds) => `${seconds} segundos`,
     generateButton: (credits) => `Gerar vídeo · ${credits} créditos`,

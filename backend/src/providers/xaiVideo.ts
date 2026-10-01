@@ -31,6 +31,16 @@ export interface XaiVideoGenerateParams {
   /** Raw base64 (no data: prefix) of a source image, for image-to-video. Omit for pure text-to-video. */
   imageBase64?: string;
   imageMimeType?: string;
+  /**
+   * Raw base64 of a second image pinning the FINAL frame — grok-imagine-video-1.5
+   * only (rejected by the classic grok-imagine-video model, per xAI's docs).
+   * Combined with imageBase64 (first frame), the model interpolates a real
+   * transition between the two; this is NOT prompt-engineering, it's a
+   * documented request parameter (confirmed developer.x.ai, 2026-09-30:
+   * https://docs.x.ai/developers/model-capabilities/video/reference-to-video#first--last-frame).
+   */
+  lastFrameBase64?: string;
+  lastFrameMimeType?: string;
   durationSeconds: number;
   resolution?: XaiVideoResolution;
   /** Defaults to grok-imagine-video-1.5. Not yet exposed to end users — kept overridable for backend-side cost/quality comparisons between the two real models. */
@@ -157,9 +167,17 @@ async function submitVideoGeneration(params: XaiVideoGenerateParams): Promise<st
     // confirmed in xAI's REST API reference (2026-08-25).
     requestBody.image = { url: `data:${params.imageMimeType || 'image/png'};base64,${params.imageBase64}` };
   }
+  if (params.lastFrameBase64) {
+    if (model !== 'grok-imagine-video-1.5') {
+      // The classic model rejects this parameter outright — fail clearly
+      // instead of letting xAI's own validation error surface as a mystery 400.
+      throw new AppError('VALIDATION_ERROR', 'First/last-frame interpolation requires grok-imagine-video-1.5.', `model=${model}`, 400);
+    }
+    requestBody.last_frame = { url: `data:${params.lastFrameMimeType || 'image/png'};base64,${params.lastFrameBase64}` };
+  }
 
   xaiLogger.log(
-    `Video request created (model=${model}, duration=${params.durationSeconds}s, resolution=${requestBody.resolution}, hasImage=${Boolean(params.imageBase64)})`
+    `Video request created (model=${model}, duration=${params.durationSeconds}s, resolution=${requestBody.resolution}, hasImage=${Boolean(params.imageBase64)}, hasLastFrame=${Boolean(params.lastFrameBase64)})`
   );
 
   let res: Response;
