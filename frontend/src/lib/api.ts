@@ -111,16 +111,21 @@ export async function submitGenerationJob(
   if (referenceImage) {
     form.append('referenceImage', referenceImage);
   }
-  form.append('projectType', settings.projectType);
-  form.append('preserveArchitecture', settings.preserveArchitecture);
-  form.append('renderStyle', settings.renderStyle);
-  form.append('lighting', settings.lighting);
-  form.append('environment', settings.environment);
-  form.append('led', settings.led);
   form.append('aspectRatio', settings.aspectRatio);
   form.append('engine', settings.engine);
-  if (settings.customInstructions) {
-    form.append('customInstructions', settings.customInstructions);
+  if (settings.mode === 'freeform') {
+    form.append('mode', 'freeform');
+    form.append('prompt', settings.prompt);
+  } else {
+    form.append('projectType', settings.projectType);
+    form.append('preserveArchitecture', settings.preserveArchitecture);
+    form.append('renderStyle', settings.renderStyle);
+    form.append('lighting', settings.lighting);
+    form.append('environment', settings.environment);
+    form.append('led', settings.led);
+    if (settings.customInstructions) {
+      form.append('customInstructions', settings.customInstructions);
+    }
   }
 
   const res = await fetch('/api/generate', { method: 'POST', body: form, headers: await authHeaders() });

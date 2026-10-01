@@ -20,6 +20,7 @@ export function historyEntryTitle(entry: HistoryEntry, messages: Messages): stri
     return styleLabel ? `${styleLabel} · ${entry.settings.space}` : entry.settings.space;
   }
   if (isRenderHistoryEntry(entry)) {
+    if (entry.settings.mode === 'freeform') return entry.prompt;
     return messages.fields.renderStyles[entry.settings.renderStyle] ?? entry.settings.renderStyle;
   }
   if (isPlantaHumanizadaHistoryEntry(entry)) {

@@ -440,6 +440,15 @@ export interface Messages {
     button: string;
     generating: string;
   };
+  renderModeToggle: {
+    guided: string;
+    freeform: string;
+  };
+  renderFreeform: {
+    promptLabel: string;
+    promptPlaceholder: string;
+    helper: string;
+  };
   generatingStatus: {
     title: string;
     elapsed: string;

@@ -24,6 +24,7 @@ import {
   LightingOption,
   PreserveLevel,
   ProjectType,
+  RenderMode,
   RenderSettings,
   RenderStyleOption,
 } from '../types/api';
@@ -62,7 +63,29 @@ setInterval(() => {
 
 export const generateRouter = Router();
 
+const MAX_FREEFORM_PROMPT_LENGTH = 2000;
+
 function parseSettings(body: Record<string, string>): RenderSettings {
+  const mode: RenderMode = body.mode === 'freeform' ? 'freeform' : 'guided';
+
+  if (mode === 'freeform') {
+    const prompt = body.prompt?.trim();
+    if (!prompt) throw new AppError('VALIDATION_ERROR', 'Prompt cannot be empty.', undefined, 400);
+    if (prompt.length > MAX_FREEFORM_PROMPT_LENGTH) {
+      throw new AppError('VALIDATION_ERROR', `Prompt exceeds the ${MAX_FREEFORM_PROMPT_LENGTH}-character limit.`, undefined, 400);
+    }
+    if (!body.engine) throw new AppError('VALIDATION_ERROR', 'Missing required field: engine', undefined, 400);
+
+    return {
+      mode: 'freeform',
+      prompt,
+      // Defaults to preserving the original image's own aspect ratio, per
+      // "preservar a proporção original, exceto quando o usuário solicitar".
+      aspectRatio: (body.aspectRatio as AspectRatioOption) || 'automatic',
+      engine: body.engine as RenderSettings['engine'],
+    };
+  }
+
   const required = [
     'projectType',
     'preserveArchitecture',
@@ -79,6 +102,7 @@ function parseSettings(body: Record<string, string>): RenderSettings {
   }
 
   return {
+    mode: 'guided',
     projectType: body.projectType as ProjectType,
     preserveArchitecture: body.preserveArchitecture as PreserveLevel,
     renderStyle: body.renderStyle as RenderStyleOption,
@@ -214,7 +238,11 @@ async function runJob(
 
     const imageBase64 = input.buffer.toString('base64');
     const referenceImageBase64 = input.referenceBuffer?.toString('base64');
-    const prompt = buildArchitecturalPrompt(settings, { hasReferenceRender });
+    // Freeform mode sends the user's own prompt verbatim — no architectural-
+    // preservation clauses layered on top, so a request to remove/replace
+    // elements is never fought by hidden instructions (unlike guided mode,
+    // which is built to protect geometry by default).
+    const prompt = settings.mode === 'freeform' ? settings.prompt : buildArchitecturalPrompt(settings, { hasReferenceRender });
     const outputFormat = input.mimeType === 'image/png' ? 'png' : 'jpeg';
 
     job.stage = 'sending';

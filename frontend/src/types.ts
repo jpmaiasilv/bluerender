@@ -37,7 +37,11 @@ export type AspectRatioOption = 'automatic' | '16:9' | '4:3' | '3:2' | '1:1' | '
  */
 export type EngineTier = 'fast' | 'standard' | 'pro' | 'gpt_image' | 'nano_banana_2';
 
-export interface RenderSettings {
+export type RenderMode = 'guided' | 'freeform';
+
+/** The pre-existing structured flow — unchanged. */
+export interface GuidedRenderSettings {
+  mode?: 'guided';
   projectType: ProjectType;
   preserveArchitecture: PreserveLevel;
   renderStyle: RenderStyleOption;
@@ -48,6 +52,16 @@ export interface RenderSettings {
   customInstructions?: string;
   engine: EngineTier;
 }
+
+/** "Edição Livre com IA" — just a prompt, an engine and an aspect ratio. */
+export interface FreeformRenderSettings {
+  mode: 'freeform';
+  prompt: string;
+  aspectRatio: AspectRatioOption;
+  engine: EngineTier;
+}
+
+export type RenderSettings = GuidedRenderSettings | FreeformRenderSettings;
 
 export type JobStage = 'uploading' | 'sending' | 'rendering' | 'downloading' | 'complete' | 'error';
 

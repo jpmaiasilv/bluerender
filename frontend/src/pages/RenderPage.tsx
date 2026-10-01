@@ -1,13 +1,16 @@
 import { useEffect, useRef, useState } from 'react';
 import { RenderWorkspace, WorkspacePhase } from '../components/RenderWorkspace';
 import { RenderSettingsPanel } from '../components/RenderSettingsPanel';
+import { FreeformRenderPanel } from '../components/FreeformRenderPanel';
 import { RecentTests } from '../components/RecentTests';
 import { ApiError, fetchEngines, pollJobUntilDone, submitGenerationJob } from '../lib/api';
 import { loadHistory, saveHistoryEntry } from '../lib/history';
-import { EngineInfo, HistoryEntry, JobErrorPayload, JobResultPayload, JobStage, RenderSettings } from '../types';
+import { EngineInfo, FreeformRenderSettings, GuidedRenderSettings, HistoryEntry, JobErrorPayload, JobResultPayload, JobStage, RenderMode, RenderSettings } from '../types';
 import { useWalletContext } from '../layouts/RootLayout';
+import { useLanguage } from '../i18n';
 
-const DEFAULT_SETTINGS: RenderSettings = {
+const DEFAULT_GUIDED_SETTINGS: GuidedRenderSettings = {
+  mode: 'guided',
   projectType: 'exterior',
   preserveArchitecture: 'high',
   renderStyle: 'photorealistic',
@@ -19,16 +22,24 @@ const DEFAULT_SETTINGS: RenderSettings = {
   engine: 'fast',
 };
 
+const DEFAULT_FREEFORM_SETTINGS: FreeformRenderSettings = {
+  mode: 'freeform',
+  prompt: '',
+  aspectRatio: 'automatic',
+  engine: 'fast',
+};
+
 /**
  * Render IA, migrated into the new platform shell. All generation logic below is
  * unchanged from before the redesign — same job submission, polling, credit
  * debiting on the backend, and error handling. Only the visual layout changed.
  */
 export function RenderPage() {
+  const { messages } = useLanguage();
   const { walletBalance, refreshWallet } = useWalletContext();
 
   const [engines, setEngines] = useState<EngineInfo[]>([]);
-  const [settings, setSettings] = useState<RenderSettings>(DEFAULT_SETTINGS);
+  const [settings, setSettings] = useState<RenderSettings>(DEFAULT_GUIDED_SETTINGS);
 
   const [file, setFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
@@ -109,6 +120,14 @@ export function RenderPage() {
     setReferencePreviewUrl(null);
   }
 
+  // Switching modes keeps the engine (common to both), but otherwise starts
+  // that mode's own defaults — the two settings shapes don't share fields to carry over.
+  function handleModeChange(mode: RenderMode) {
+    setSettings((prev) =>
+      mode === 'freeform' ? { ...DEFAULT_FREEFORM_SETTINGS, engine: prev.engine } : { ...DEFAULT_GUIDED_SETTINGS, engine: prev.engine }
+    );
+  }
+
   async function runGeneration() {
     if (!file) return;
 
@@ -167,7 +186,11 @@ export function RenderPage() {
   }
 
   const isGenerating = phase === 'generating';
-  const canGenerate = Boolean(file) && Boolean(settings.engine) && !isGenerating;
+  const canGenerate =
+    Boolean(file) &&
+    Boolean(settings.engine) &&
+    !isGenerating &&
+    (settings.mode !== 'freeform' || Boolean(settings.prompt.trim()));
 
   return (
     <div className="flex h-full flex-1 flex-col overflow-hidden">
@@ -191,20 +214,49 @@ export function RenderPage() {
           </div>
         </div>
 
-        <div className="w-[340px] shrink-0">
-          <RenderSettingsPanel
-            settings={settings}
-            onSettingsChange={setSettings}
-            referencePreviewUrl={referencePreviewUrl}
-            onReferenceFileSelected={handleReferenceFileSelected}
-            onClearReferenceFile={handleClearReferenceFile}
-            engines={engines}
-            walletBalance={walletBalance}
-            disabled={isGenerating}
-            onGenerate={runGeneration}
-            canGenerate={canGenerate}
-            isGenerating={isGenerating}
-          />
+        <div className="flex w-[340px] shrink-0 flex-col border-l border-border bg-surface">
+          <div className="flex gap-1 border-b border-border p-2">
+            {(['guided', 'freeform'] as const).map((m) => (
+              <button
+                key={m}
+                type="button"
+                disabled={isGenerating}
+                onClick={() => handleModeChange(m)}
+                className={`flex-1 rounded-lg px-3 py-2 text-xs font-medium transition disabled:cursor-not-allowed disabled:opacity-60 ${
+                  (settings.mode ?? 'guided') === m ? 'bg-sapphire-light text-sapphire' : 'text-ink-secondary hover:bg-surface-secondary'
+                }`}
+              >
+                {m === 'guided' ? messages.renderModeToggle.guided : messages.renderModeToggle.freeform}
+              </button>
+            ))}
+          </div>
+
+          {settings.mode === 'freeform' ? (
+            <FreeformRenderPanel
+              settings={settings}
+              onSettingsChange={setSettings}
+              engines={engines}
+              walletBalance={walletBalance}
+              disabled={isGenerating}
+              onGenerate={runGeneration}
+              canGenerate={canGenerate}
+              isGenerating={isGenerating}
+            />
+          ) : (
+            <RenderSettingsPanel
+              settings={settings}
+              onSettingsChange={setSettings}
+              referencePreviewUrl={referencePreviewUrl}
+              onReferenceFileSelected={handleReferenceFileSelected}
+              onClearReferenceFile={handleClearReferenceFile}
+              engines={engines}
+              walletBalance={walletBalance}
+              disabled={isGenerating}
+              onGenerate={runGeneration}
+              canGenerate={canGenerate}
+              isGenerating={isGenerating}
+            />
+          )}
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { EngineInfo, RenderSettings } from '../types';
+import { EngineInfo, GuidedRenderSettings } from '../types';
 import {
   ASPECT_RATIO_VALUES,
   ENVIRONMENT_VALUES,
@@ -16,8 +16,8 @@ import { AdvancedOptions } from './AdvancedOptions';
 import { useLanguage } from '../i18n';
 
 interface Props {
-  settings: RenderSettings;
-  onSettingsChange: (settings: RenderSettings) => void;
+  settings: GuidedRenderSettings;
+  onSettingsChange: (settings: GuidedRenderSettings) => void;
   referencePreviewUrl: string | null;
   onReferenceFileSelected: (file: File) => void;
   onClearReferenceFile: () => void;
@@ -47,7 +47,7 @@ export function RenderSettingsPanel({
   const canAfford = !selectedEngine || walletBalance >= selectedEngine.credits;
   const balanceAfter = selectedEngine ? Math.max(0, walletBalance - selectedEngine.credits) : walletBalance;
 
-  function update<K extends keyof RenderSettings>(key: K, value: RenderSettings[K]) {
+  function update<K extends keyof GuidedRenderSettings>(key: K, value: GuidedRenderSettings[K]) {
     onSettingsChange({ ...settings, [key]: value });
   }
 
@@ -60,7 +60,7 @@ export function RenderSettingsPanel({
           label={messages.fields.projectType}
           value={settings.projectType}
           options={PROJECT_TYPE_VALUES.map((v) => ({ value: v, label: messages.fields.projectTypeOptions[v] }))}
-          onChange={(v) => update('projectType', v as RenderSettings['projectType'])}
+          onChange={(v) => update('projectType', v as GuidedRenderSettings['projectType'])}
           disabled={disabled}
         />
 
@@ -68,7 +68,7 @@ export function RenderSettingsPanel({
           label={messages.fields.renderStyle}
           value={settings.renderStyle}
           options={RENDER_STYLE_VALUES.map((v) => ({ value: v, label: messages.fields.renderStyles[v] }))}
-          onChange={(v) => update('renderStyle', v as RenderSettings['renderStyle'])}
+          onChange={(v) => update('renderStyle', v as GuidedRenderSettings['renderStyle'])}
           disabled={disabled}
         />
 
@@ -82,7 +82,7 @@ export function RenderSettingsPanel({
             label={messages.fields.lighting}
             value={settings.lighting}
             options={LIGHTING_VALUES.map((v) => ({ value: v, label: messages.fields.lightingOptions[v] }))}
-            onChange={(v) => update('lighting', v as RenderSettings['lighting'])}
+            onChange={(v) => update('lighting', v as GuidedRenderSettings['lighting'])}
             disabled={disabled}
           />
 
@@ -90,7 +90,7 @@ export function RenderSettingsPanel({
             label={messages.fields.environment}
             value={settings.environment}
             options={ENVIRONMENT_VALUES.map((v) => ({ value: v, label: messages.fields.environmentOptions[v] }))}
-            onChange={(v) => update('environment', v as RenderSettings['environment'])}
+            onChange={(v) => update('environment', v as GuidedRenderSettings['environment'])}
             disabled={disabled}
           />
 
@@ -98,7 +98,7 @@ export function RenderSettingsPanel({
             label={messages.fields.led}
             value={settings.led}
             options={LED_VALUES.map((v) => ({ value: v, label: messages.fields.ledOptions[v] }))}
-            onChange={(v) => update('led', v as RenderSettings['led'])}
+            onChange={(v) => update('led', v as GuidedRenderSettings['led'])}
             disabled={disabled}
           />
 
@@ -106,7 +106,7 @@ export function RenderSettingsPanel({
             label={messages.fields.aspectRatio}
             value={settings.aspectRatio}
             options={ASPECT_RATIO_VALUES.map((v) => ({ value: v, label: messages.fields.aspectRatioOptions[v] }))}
-            onChange={(v) => update('aspectRatio', v as RenderSettings['aspectRatio'])}
+            onChange={(v) => update('aspectRatio', v as GuidedRenderSettings['aspectRatio'])}
             disabled={disabled}
           />
 

@@ -21,15 +21,17 @@ export function RecentTests({ entries }: Props) {
       <h3 className="mb-3 text-xs font-medium uppercase tracking-wide text-ink-secondary">{messages.history.recentTests}</h3>
       <div className="flex flex-col gap-2">
         {renderEntries.map((entry) => {
-          // Entries saved by an older version of the app may lack renderStyle/aspectRatio.
-          const styleLabel = entry.settings.renderStyle
-            ? messages.fields.renderStyles[entry.settings.renderStyle] ?? entry.settings.renderStyle
+          // Entries saved by an older version of the app may lack renderStyle/aspectRatio;
+          // a freeform ("Edição Livre") entry has none of these guided-only fields at all.
+          const guidedSettings = entry.settings.mode === 'freeform' ? null : entry.settings;
+          const styleLabel = guidedSettings?.renderStyle
+            ? messages.fields.renderStyles[guidedSettings.renderStyle] ?? guidedSettings.renderStyle
             : '';
-          const projectTypeLabel = entry.settings.projectType
-            ? messages.fields.projectTypeOptions[entry.settings.projectType] ?? entry.settings.projectType
+          const projectTypeLabel = guidedSettings?.projectType
+            ? messages.fields.projectTypeOptions[guidedSettings.projectType] ?? guidedSettings.projectType
             : '';
-          const lightingLabel = entry.settings.lighting
-            ? messages.fields.lightingOptions[entry.settings.lighting] ?? entry.settings.lighting
+          const lightingLabel = guidedSettings?.lighting
+            ? messages.fields.lightingOptions[guidedSettings.lighting] ?? guidedSettings.lighting
             : '';
           const engineLabel = entry.engine
             ? (messages.engines.tierNames as Record<string, string>)[entry.engine] ?? entry.engine

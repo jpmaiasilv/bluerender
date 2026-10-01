@@ -1,10 +1,10 @@
 import {
   EnvironmentOption,
+  GuidedRenderSettings,
   LedOption,
   LightingOption,
   PreserveLevel,
   ProjectType,
-  RenderSettings,
   RenderStyleOption,
 } from '../types/api';
 
@@ -102,7 +102,7 @@ function buildRenderStyleClause(style: RenderStyleOption, hasReferenceRender: bo
   return `As a secondary, complementary influence on materials and mood only (IMAGE 2 takes priority for aesthetics): ${clause}`;
 }
 
-function buildCustomInstructionsClause(settings: RenderSettings): string | null {
+function buildCustomInstructionsClause(settings: GuidedRenderSettings): string | null {
   if (!settings.customInstructions) return null;
   if (settings.preserveArchitecture === 'high') {
     // Never let free-text instructions override HIGH preservation's geometry lock.
@@ -118,7 +118,7 @@ function buildCustomInstructionsClause(settings: RenderSettings): string | null 
  * 3) render style, 4) lighting/environment/aspect-ratio/custom instructions.
  */
 export function buildArchitecturalPrompt(
-  settings: RenderSettings,
+  settings: GuidedRenderSettings,
   options: { hasReferenceRender: boolean }
 ): string {
   const parts = [BASE_PROMPT, PRESERVATION_CLAUSES[settings.preserveArchitecture]];

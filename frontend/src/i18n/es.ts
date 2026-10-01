@@ -567,6 +567,15 @@ export const es: Messages = {
     button: 'Generar Render',
     generating: 'Generando…',
   },
+  renderModeToggle: {
+    guided: 'Render Guiado',
+    freeform: 'Edición Libre con IA',
+  },
+  renderFreeform: {
+    promptLabel: 'Describe la edición que quieres',
+    promptPlaceholder: 'Ej.: Elimina por completo la vivienda y deja solo el terreno vacío.',
+    helper: 'A diferencia del Render Guiado, aquí la IA sigue exactamente lo que escribas — incluyendo añadir, quitar o sustituir elementos.',
+  },
   generatingStatus: {
     title: 'Generando tu render…',
     elapsed: 'Transcurrido',

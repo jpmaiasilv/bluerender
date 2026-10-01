@@ -31,7 +31,11 @@ export type LedOption = 'off' | 'automatic' | 'white' | 'yellow';
 
 export type AspectRatioOption = 'automatic' | '16:9' | '4:3' | '3:2' | '1:1' | '9:16';
 
-export interface RenderSettings {
+export type RenderMode = 'guided' | 'freeform';
+
+/** The pre-existing structured flow — `mode` absent/'guided' keeps every caller that never sends it working unchanged. */
+export interface GuidedRenderSettings {
+  mode?: 'guided';
   projectType: ProjectType;
   preserveArchitecture: PreserveLevel;
   renderStyle: RenderStyleOption;
@@ -42,6 +46,16 @@ export interface RenderSettings {
   customInstructions?: string;
   engine: RenderEngineId;
 }
+
+/** "Edição Livre com IA" — the user's own full prompt, sent to the provider verbatim (no architectural-preservation clauses layered on top, so it can genuinely add/remove/replace elements when asked). */
+export interface FreeformRenderSettings {
+  mode: 'freeform';
+  prompt: string;
+  aspectRatio: AspectRatioOption;
+  engine: RenderEngineId;
+}
+
+export type RenderSettings = GuidedRenderSettings | FreeformRenderSettings;
 
 export type JobStage =
   | 'uploading'
