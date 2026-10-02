@@ -87,13 +87,17 @@ interface SdkErrorShape {
   message?: string;
 }
 
-/** Same classification family as geminiRenderProvider.ts's — kept as its own copy per this codebase's convention of one provider file owning its own error mapping. Logs ONLY status + a redacted message — never the key or image/video bytes. */
+/** Same classification family as geminiRenderProvider.ts's — kept as its own copy per this codebase's convention of one provider file owning its own error mapping. Logs status + the redacted message (never the key or image/video bytes). */
 function classifyGeminiVideoError(err: unknown): AppError {
   const shaped = err as SdkErrorShape;
   const status = shaped?.status;
   const rawMessage = err instanceof Error ? err.message : String(err);
   const sanitized = rawMessage.replace(/[A-Za-z0-9+/]{80,}={0,2}/g, '[BASE64_REDACTED]').slice(0, 500);
-  geminiLogger.error('Gemini video HTTP error', { status: status ?? 'n/a' });
+  // Log the message too, not just the status — this field used to be computed
+  // and then only ever handed to the caller as AppError.details, never
+  // actually printed anywhere, which is exactly what made the previous
+  // "Generation failed" reports impossible to diagnose from the console alone.
+  geminiLogger.error(`[VIDEO IA ERROR] Gemini video HTTP error (status=${status ?? 'n/a'}): ${sanitized}`);
 
   const isQuotaOrFreeTierIssue = status === 429 || /RESOURCE_EXHAUSTED/i.test(rawMessage) || /quota/i.test(rawMessage);
   if (isQuotaOrFreeTierIssue) {
@@ -135,27 +139,40 @@ export async function generateVideo(params: GeminiVideoGenerateParams): Promise<
         lastFrame: params.lastFrameBase64 ? { imageBytes: params.lastFrameBase64, mimeType: params.lastFrameMimeType || 'image/png' } : undefined,
       },
     });
+    geminiLogger.log(`Operation created: ${operation.name ?? '(no name returned)'}`);
 
     const startedAt = Date.now();
     let delay = POLL_START_DELAY_MS;
     while (!operation.done) {
       if (Date.now() - startedAt > POLL_TIMEOUT_MS) {
-        throw new AppError('GENERATION_TIMEOUT', 'The video took too long to generate.', `Exceeded ${POLL_TIMEOUT_MS}ms polling timeout`, 504);
+        throw new AppError('GENERATION_TIMEOUT', 'The video took too long to generate.', `operation=${operation.name ?? 'n/a'} exceeded ${POLL_TIMEOUT_MS}ms polling timeout`, 504);
       }
       params.onProviderStatus?.('processing');
-      geminiLogger.log('Processing (operation not done yet)');
+      geminiLogger.log(`Processing (operation=${operation.name ?? 'n/a'}, done=false)`);
       await new Promise((resolve) => setTimeout(resolve, delay));
       delay = Math.min(delay * POLL_BACKOFF_FACTOR, POLL_MAX_DELAY_MS);
       operation = await ai.operations.getVideosOperation({ operation });
     }
 
     if (operation.error) {
-      throw new AppError('GENERATION_FAILED', 'Gemini failed to generate the video.', JSON.stringify(operation.error).slice(0, 500), 502);
+      const rawError = JSON.stringify(operation.error).slice(0, 500);
+      geminiLogger.error(`[VIDEO IA ERROR] Veo operation finished with an error (operation=${operation.name ?? 'n/a'}): ${rawError}`);
+      throw new AppError('GENERATION_FAILED', 'Gemini failed to generate the video.', rawError, 502);
     }
     const generated = operation.response?.generatedVideos?.[0]?.video;
     if (!generated) {
-      throw new AppError('UNKNOWN_ERROR', 'Gemini returned no video for this request.', undefined, 502);
+      geminiLogger.error(
+        `[VIDEO IA ERROR] Veo operation finished successfully but returned no video (operation=${operation.name ?? 'n/a'}, raiFilteredCount=${operation.response?.raiMediaFilteredCount ?? 0}, raiFilteredReasons=${(operation.response?.raiMediaFilteredReasons ?? []).join('; ') || 'none'})`
+      );
+      const filterReasons = operation.response?.raiMediaFilteredReasons;
+      throw new AppError(
+        'UNKNOWN_ERROR',
+        filterReasons && filterReasons.length > 0 ? 'Gemini filtered this video for a policy reason and did not generate it.' : 'Gemini returned no video for this request.',
+        filterReasons?.join('; '),
+        502
+      );
     }
+    geminiLogger.log(`Operation done (operation=${operation.name ?? 'n/a'}): video returned`);
 
     let buffer: Buffer;
     if (generated.videoBytes) {

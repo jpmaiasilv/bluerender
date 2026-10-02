@@ -21,3 +21,4 @@ export const serverLogger = makeLogger('[SERVER]');
 export const geminiLogger = makeLogger('[GEMINI]');
 export const openaiLogger = makeLogger('[OPENAI]');
 export const topazLogger = makeLogger('[TOPAZ]');
+export const videoLogger = makeLogger('[VIDEO IA]');

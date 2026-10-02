@@ -826,6 +826,13 @@ export async function pollVideoGeneratorJobUntilDone(
 
     if (data.stage === 'complete') return data;
     if (data.stage === 'error') {
+      if (!data.error?.message) {
+        // Should not happen now that the backend always stores the original
+        // error before attempting the credit refund — but if it ever does,
+        // the full raw job response goes to the browser console (a technical
+        // log, not the UI) instead of silently showing a useless generic line.
+        console.error('[VIDEO IA] job reported stage=error without a message — raw job response:', data);
+      }
       throw new ApiError(data.error?.code ?? 'UNKNOWN_ERROR', data.error?.message ?? 'Generation failed.', data.error?.details);
     }
 

@@ -6,13 +6,13 @@ import { buildVideoPrompt } from '../lib/videoPromptBuilder';
 import { detectImageMimeType } from '../lib/fileSignature';
 import { generateVideo, GeminiVideoModel, GeminiVideoResolution } from '../providers/geminiVideo';
 import { saveResultVideo } from '../storage/resultStore';
-import { serverLogger } from '../lib/logger';
+import { serverLogger, videoLogger } from '../lib/logger';
 import { computeVideoCost, isVideoDuration, VideoDuration, VIDEO_DURATION_OPTIONS, VIDEO_MODEL_ID, VIDEO_PROVIDER_ID } from '../config/videoEngines';
 import { ActiveReservation, captureCredits, refundCredits, reserveCredits } from '../services/creditWallet';
 import { requireAuth, AuthenticatedRequest } from '../middleware/requireAuth';
 import { recordGeneration } from '../services/generationLog';
 import { VideoGeneratorSettings, VideoJobStatusResponse, VideoPricingResponse } from '../types/videoGenerator';
-import { JobStage } from '../types/api';
+import { JobErrorPayload, JobStage } from '../types/api';
 
 const MAX_PROMPT_LENGTH = 2000;
 const MAX_FILE_SIZE = 15 * 1024 * 1024;
@@ -205,6 +205,54 @@ interface JobInput {
   resolution?: GeminiVideoResolution;
 }
 
+/**
+ * Turns whatever was thrown into the payload stored on the job — exported
+ * (well, kept as a standalone pure function) so it can be unit-tested with
+ * every shape a failure can take: an AppError from the Gemini/Veo provider,
+ * a plain Error, and a non-Error thrown value. This is deliberately the
+ * FIRST thing runJob's catch block calls, before anything that could itself
+ * fail (like the refund below) gets a chance to run.
+ */
+export function buildJobErrorPayload(err: unknown): JobErrorPayload {
+  if (err instanceof AppError) return err.toPayload();
+  return {
+    code: 'UNKNOWN_ERROR',
+    message: 'An unexpected error occurred during generation.',
+    details: err instanceof Error ? err.message : String(err),
+  };
+}
+
+type RefundOutcome = 'refunded' | 'pending_reconciliation' | 'threw';
+
+/**
+ * Refund attempted in complete isolation from error capture above: whatever
+ * happens here — success, a no-op because it was already settled, or an
+ * unexpected throw — can never overwrite or hide the original generation
+ * error already stored on the job. refundCredits() itself is designed to
+ * never throw (an unrecorded refund is logged and picked up later by the
+ * wallet reconciler, so the reservation is never lost and a retry stays
+ * safe — calling refundCredits again for the same reservation is a no-op
+ * once it's actually settled) — this still wraps it in try/catch as a second
+ * line of defense in case that contract ever changes.
+ */
+export async function attemptRefund(jobId: string, reservation: ActiveReservation): Promise<RefundOutcome> {
+  try {
+    const refund = await refundCredits(reservation, 'generation_failed');
+    if (refund) {
+      videoLogger.log(`job=${jobId} refund=confirmed amount=${refund.refunded} refundId=${refund.refundId}`);
+      return 'refunded';
+    }
+    videoLogger.log(`job=${jobId} refund=pending — not yet confirmed, the wallet reconciler will retry it; reservation is not lost`);
+    return 'pending_reconciliation';
+  } catch (refundErr) {
+    videoLogger.error(
+      `[VIDEO IA ERROR] job=${jobId} refund attempt threw unexpectedly — the original generation error was already saved and is not affected`,
+      refundErr instanceof Error ? refundErr.message : String(refundErr)
+    );
+    return 'threw';
+  }
+}
+
 async function runJob(
   job: Job,
   reservation: ActiveReservation, settings: VideoGeneratorSettings, totalCost: number, input: JobInput): Promise<void> {
@@ -217,6 +265,9 @@ async function runJob(
     const prompt = buildVideoPrompt(settings, { hasSourceImage, hasEndImage });
 
     job.stage = 'sending';
+    videoLogger.log(
+      `job=${job.id} requesting model=${input.model || VIDEO_MODEL_ID} duration=${settings.durationSeconds}s resolution=${input.resolution || '720p'} hasSourceImage=${hasSourceImage} hasEndImage=${hasEndImage}`
+    );
     const result = await generateVideo({
       prompt,
       imageBase64: input.sourceBuffer?.toString('base64'),
@@ -268,17 +319,16 @@ async function runJob(
     });
   } catch (err) {
     job.stage = 'error';
-    await refundCredits(reservation, 'generation_failed');
-    if (err instanceof AppError) {
-      job.error = err.toPayload();
-    } else {
-      serverLogger.error(`Video job ${job.id} failed unexpectedly`, err);
-      job.error = {
-        code: 'UNKNOWN_ERROR',
-        message: 'An unexpected error occurred during generation.',
-        details: err instanceof Error ? err.message : String(err),
-      };
-    }
+
+    // Capture and store the ORIGINAL error FIRST, before anything else runs —
+    // the refund attempt below must never get a chance to overwrite or hide it.
+    const errorPayload = buildJobErrorPayload(err);
+    job.error = errorPayload;
+    videoLogger.error(
+      `[VIDEO IA ERROR] job=${job.id} code=${errorPayload.code} message=${errorPayload.message}${errorPayload.details ? ` details=${errorPayload.details}` : ''}`
+    );
+
+    await attemptRefund(job.id, reservation);
 
     recordGeneration({
       generationId: job.id,
