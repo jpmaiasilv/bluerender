@@ -29,7 +29,7 @@ type Phase = 'idle' | 'generating' | 'complete' | 'error';
 
 const DEFAULT_SETTINGS: VideoGeneratorSettings = {
   prompt: '',
-  durationSeconds: 5,
+  durationSeconds: 6,
 };
 
 export function VideoGeneratorPage() {

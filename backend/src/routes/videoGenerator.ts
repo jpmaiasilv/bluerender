@@ -4,7 +4,7 @@ import crypto from 'node:crypto';
 import { AppError } from '../lib/errors';
 import { buildVideoPrompt } from '../lib/videoPromptBuilder';
 import { detectImageMimeType } from '../lib/fileSignature';
-import { generateVideo, XaiVideoModel, XaiVideoResolution } from '../providers/xaiVideo';
+import { generateVideo, GeminiVideoModel, GeminiVideoResolution } from '../providers/geminiVideo';
 import { saveResultVideo } from '../storage/resultStore';
 import { serverLogger } from '../lib/logger';
 import { computeVideoCost, isVideoDuration, VideoDuration, VIDEO_DURATION_OPTIONS, VIDEO_MODEL_ID, VIDEO_PROVIDER_ID } from '../config/videoEngines';
@@ -21,9 +21,10 @@ const JOB_TTL_MS = 30 * 60 * 1000;
 const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: MAX_FILE_SIZE } });
 const uploadFields = upload.fields([
   { name: 'sourceImage', maxCount: 1 },
-  // Optional — pins the video's final frame (grok-imagine-video-1.5 only).
-  // Real API capability, not prompt-engineering: confirmed via xAI's docs
-  // (see providers/xaiVideo.ts's XaiVideoGenerateParams.lastFrameBase64).
+  // Optional — pins the video's final frame (Veo 3.1 only; rejected request
+  // as last-frame-only without a starting image, enforced below). Real API
+  // capability, not prompt-engineering: confirmed via Google's official docs
+  // (see providers/geminiVideo.ts's GeminiVideoGenerateParams.lastFrameBase64).
   { name: 'endImage', maxCount: 1 },
 ]);
 
@@ -57,12 +58,12 @@ videoGeneratorRouter.get('/video-generator/pricing', (_req: Request, res: Respon
 
 /**
  * `allowAnyDuration` widens the accepted range from the product's fixed
- * 5/10/15s choices to xAI's real 1-15s range — used only for the backend-side
- * model/resolution comparison tests (see parseModelOverride below), never
- * reachable from the actual UI. The resulting `durationSeconds` is cast to
- * `VideoDuration` for that test path even though it may not literally be one
- * of 5/10/15 — safe because this value only flows into logging/cost math,
- * never back out through the frontend-facing VideoDuration contract.
+ * 4/6/8s choices — used only for the backend-side model/resolution
+ * comparison tests (see parseModelOverride below), never reachable from the
+ * actual UI. The resulting `durationSeconds` is cast to `VideoDuration` for
+ * that test path even though it may not literally be one of 4/6/8 — safe
+ * because this value only flows into logging/cost math, never back out
+ * through the frontend-facing VideoDuration contract.
  */
 function parseSettings(body: Record<string, string>, allowAnyDuration = false): VideoGeneratorSettings {
   const prompt = body.prompt?.trim();
@@ -75,7 +76,7 @@ function parseSettings(body: Record<string, string>, allowAnyDuration = false): 
 
   const durationSeconds = Number(body.durationSeconds);
   if (allowAnyDuration) {
-    if (!Number.isInteger(durationSeconds) || durationSeconds < 1 || durationSeconds > 15) {
+    if (!Number.isInteger(durationSeconds) || durationSeconds < 1 || durationSeconds > 8) {
       throw new AppError('VALIDATION_ERROR', `Invalid duration: ${body.durationSeconds}`, undefined, 400);
     }
     return { prompt, durationSeconds: durationSeconds as VideoGeneratorSettings['durationSeconds'] };
@@ -88,21 +89,21 @@ function parseSettings(body: Record<string, string>, allowAnyDuration = false): 
   return { prompt, durationSeconds };
 }
 
-const KNOWN_MODELS: XaiVideoModel[] = ['grok-imagine-video', 'grok-imagine-video-1.5'];
-const KNOWN_RESOLUTIONS: XaiVideoResolution[] = ['480p', '720p', '1080p'];
+const KNOWN_MODELS: GeminiVideoModel[] = ['veo-3.1-lite-generate-preview', 'veo-3.1-fast-generate-preview', 'veo-3.1-generate-preview'];
+const KNOWN_RESOLUTIONS: GeminiVideoResolution[] = ['720p', '1080p'];
 
 /**
  * Not part of the stable, frontend-facing contract — the app always sends
- * "grok-imagine-video-1.5" / no explicit resolution (backend default 720p)
- * today. These optional overrides exist purely so we can A/B the two real
- * models' cost/quality server-side (e.g. via curl) before deciding on Fast
- * tier pricing, without touching VideoGeneratorSettings or the UI.
+ * "veo-3.1-lite-generate-preview" / no explicit resolution (backend default
+ * 720p) today. These optional overrides exist purely so we can A/B the Veo
+ * tiers' cost/quality server-side (e.g. via curl) before ever considering a
+ * quality upgrade, without touching VideoGeneratorSettings or the UI.
  */
-function parseModelOverride(body: Record<string, string>): { model?: XaiVideoModel; resolution?: XaiVideoResolution } {
-  const model = body.model && KNOWN_MODELS.includes(body.model as XaiVideoModel) ? (body.model as XaiVideoModel) : undefined;
+function parseModelOverride(body: Record<string, string>): { model?: GeminiVideoModel; resolution?: GeminiVideoResolution } {
+  const model = body.model && KNOWN_MODELS.includes(body.model as GeminiVideoModel) ? (body.model as GeminiVideoModel) : undefined;
   const resolution =
-    body.resolution && KNOWN_RESOLUTIONS.includes(body.resolution as XaiVideoResolution)
-      ? (body.resolution as XaiVideoResolution)
+    body.resolution && KNOWN_RESOLUTIONS.includes(body.resolution as GeminiVideoResolution)
+      ? (body.resolution as GeminiVideoResolution)
       : undefined;
   return { model, resolution };
 }
@@ -197,11 +198,11 @@ function handleSyncError(res: Response, err: unknown): void {
 interface JobInput {
   sourceBuffer?: Buffer;
   sourceMimeType?: string;
-  /** Optional final-frame image — real xAI "First & Last Frame" interpolation (grok-imagine-video-1.5), not simulated. */
+  /** Optional final-frame image — real Veo 3.1 "First & Last Frame" interpolation, not simulated. */
   endBuffer?: Buffer;
   endMimeType?: string;
-  model?: XaiVideoModel;
-  resolution?: XaiVideoResolution;
+  model?: GeminiVideoModel;
+  resolution?: GeminiVideoResolution;
 }
 
 async function runJob(
@@ -251,7 +252,7 @@ async function runJob(
     job.stage = 'complete';
 
     if (result.costUsd !== null) {
-      serverLogger.log(`Video generation real cost: $${result.costUsd.toFixed(4)} (xAI request ${result.requestId})`);
+      serverLogger.log(`Video generation real cost: $${result.costUsd.toFixed(4)} (Gemini request ${result.requestId})`);
     }
 
     recordGeneration({

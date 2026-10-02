@@ -579,7 +579,7 @@ export interface PlantaCreateJobResponse {
 }
 
 // --- Vídeo IA ---
-export type VideoDuration = 3 | 5 | 8;
+export type VideoDuration = 4 | 6 | 8;
 
 export interface VideoGeneratorSettings {
   prompt: string;

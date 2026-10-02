@@ -254,4 +254,4 @@ export const IDEA_CREATIVITY_VALUES: IdeaCreativity[] = ['baixa', 'equilibrada',
 export const IDEA_IMAGE_COUNT_VALUES: IdeaImageCount[] = [1, 2, 4];
 
 // --- Vídeo IA ---
-export const VIDEO_DURATION_VALUES: VideoDuration[] = [3, 5, 8];
+export const VIDEO_DURATION_VALUES: VideoDuration[] = [4, 6, 8];
