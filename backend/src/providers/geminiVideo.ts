@@ -63,7 +63,14 @@ const POLL_MAX_DELAY_MS = 15000;
 const POLL_BACKOFF_FACTOR = 1.3;
 const POLL_TIMEOUT_MS = Number(process.env.GEMINI_VIDEO_POLL_TIMEOUT_MS) || 6 * 60 * 1000;
 
-/** Official per-second prices (ai.google.dev/gemini-api/docs/pricing, confirmed 2026-10-02) — audio included, not an extra line item since generateAudio is left off below. */
+/**
+ * Official per-second prices (ai.google.dev/gemini-api/docs/pricing,
+ * confirmed 2026-10-02) — "video with audio" is the Gemini Developer API's
+ * own default and documented price (not an extra line item), which is also
+ * the only option available here: generateAudio can't be set at all on this
+ * API surface (see the config object below), so every video now includes
+ * generated audio by default — no cost impact either way.
+ */
 const PRICE_PER_SECOND: Record<GeminiVideoModel, Partial<Record<GeminiVideoResolution, number>>> = {
   'veo-3.1-lite-generate-preview': { '720p': 0.05, '1080p': 0.08 },
   'veo-3.1-fast-generate-preview': { '720p': 0.1, '1080p': 0.12 },
@@ -133,9 +140,13 @@ export async function generateVideo(params: GeminiVideoGenerateParams): Promise<
         numberOfVideos: 1,
         durationSeconds: params.durationSeconds,
         resolution,
-        // Left off on purpose: keeps cost exactly at the documented per-second
-        // rate with no audio line item, since nothing in the product asks for sound yet.
-        generateAudio: false,
+        // generateAudio is NOT sent: confirmed via a real failed request that
+        // the Gemini Developer API (this app's GEMINI_API_KEY, not Vertex AI /
+        // Gemini Enterprise Agent Platform) rejects this parameter outright —
+        // "generateAudio parameter is only supported in Gemini Enterprise
+        // Agent Platform mode, not in Gemini Developer API mode." Omitting the
+        // field entirely (not even `false`) lets Veo fall back to its own
+        // default for this API surface.
         lastFrame: params.lastFrameBase64 ? { imageBytes: params.lastFrameBase64, mimeType: params.lastFrameMimeType || 'image/png' } : undefined,
       },
     });
